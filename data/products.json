@@ -208,8 +208,8 @@
     "brand": "Nike",
     "category": "Zuecos Nike Mind",
     "subcategory": "Retro",
-    "shortDescription": "Nike Mind Retro en negro.",
-    "longDescription": "Zueco Nike Mind Retro en negro. Silueta retro, cordones planos y suela con buen amortiguado. También disponible en crema y blanco.",
+    "shortDescription": "Nike Mind Retro en negro, monopieza con suela de tacos.",
+    "longDescription": "Zueco Nike Mind Retro en negro total. Construcción monopieza moldeada sin costuras, empeine perforado para ventilación y Swoosh metálico al lateral. Suela de tacos con amortiguación naranja a la vista y plantilla Nike Mind. Talón abierto, entrás y salís sin desatar nada. También disponible en crema y blanco.",
     "price": 2300,
     "oldPrice": null,
     "discount": 0,
@@ -221,8 +221,7 @@
       { "name": "Negro", "hex": "#101010" }
     ],
     "images": [
-      "assets/placeholders/product-07-1.svg",
-      "assets/placeholders/product-07-2.svg"
+      "assets/products/nike-mind-retro-negro-1.jpg"
     ],
     "video": null,
     "featured": true,
@@ -231,8 +230,10 @@
     "sold": 0,
     "tags": ["zueco", "nike", "retro", "negro"],
     "specifications": [
-      { "label": "Capellada", "value": "Cuero sintético" },
-      { "label": "Suela", "value": "Goma" }
+      { "label": "Construcción", "value": "Monopieza moldeada sin costuras" },
+      { "label": "Empeine", "value": "Perforado para ventilación" },
+      { "label": "Suela", "value": "Goma con tacos de amortiguación" },
+      { "label": "Calce", "value": "Talón abierto, sin cordones" }
     ],
     "complementaryProducts": [5, 6],
     "recommendedProducts": [8, 9],
@@ -246,8 +247,8 @@
     "brand": "Nike",
     "category": "Zuecos Nike Mind",
     "subcategory": "Retro",
-    "shortDescription": "Nike Mind Retro en crema.",
-    "longDescription": "Zueco Nike Mind Retro en crema. Silueta retro, cordones planos y suela con buen amortiguado. También disponible en negro y blanco.",
+    "shortDescription": "Nike Mind Retro en crema, monopieza con suela de tacos.",
+    "longDescription": "Zueco Nike Mind Retro en crema. Construcción monopieza moldeada sin costuras, empeine perforado para ventilación y Swoosh metálico al lateral. Suela de tacos con amortiguación naranja a la vista y plantilla Nike Mind. Talón abierto, entrás y salís sin desatar nada. También disponible en negro y blanco.",
     "price": 2300,
     "oldPrice": null,
     "discount": 0,
@@ -259,8 +260,9 @@
       { "name": "Crema", "hex": "#EDE0C8" }
     ],
     "images": [
-      "assets/placeholders/product-08-1.svg",
-      "assets/placeholders/product-08-2.svg"
+      "assets/products/nike-mind-retro-crema-1.jpg",
+      "assets/products/nike-mind-retro-crema-2.jpg",
+      "assets/products/nike-mind-retro-crema-3.jpg"
     ],
     "video": null,
     "featured": false,
@@ -269,8 +271,10 @@
     "sold": 0,
     "tags": ["zueco", "nike", "retro", "crema"],
     "specifications": [
-      { "label": "Capellada", "value": "Cuero sintético" },
-      { "label": "Suela", "value": "Goma" }
+      { "label": "Construcción", "value": "Monopieza moldeada sin costuras" },
+      { "label": "Empeine", "value": "Perforado para ventilación" },
+      { "label": "Suela", "value": "Goma con tacos de amortiguación" },
+      { "label": "Calce", "value": "Talón abierto, sin cordones" }
     ],
     "complementaryProducts": [5, 6],
     "recommendedProducts": [7, 9],
@@ -284,8 +288,8 @@
     "brand": "Nike",
     "category": "Zuecos Nike Mind",
     "subcategory": "Retro",
-    "shortDescription": "Nike Mind Retro en blanco.",
-    "longDescription": "Zueco Nike Mind Retro en blanco. Silueta retro, cordones planos y suela con buen amortiguado. También disponible en negro y crema.",
+    "shortDescription": "Nike Mind Retro en blanco, monopieza con suela de tacos.",
+    "longDescription": "Zueco Nike Mind Retro en blanco. Construcción monopieza moldeada sin costuras, empeine perforado para ventilación y Swoosh metálico al lateral. Suela de tacos con amortiguación naranja a la vista y plantilla Nike Mind. Talón abierto, entrás y salís sin desatar nada. También disponible en negro y crema.",
     "price": 2300,
     "oldPrice": null,
     "discount": 0,
@@ -307,8 +311,10 @@
     "sold": 0,
     "tags": ["zueco", "nike", "retro", "blanco"],
     "specifications": [
-      { "label": "Capellada", "value": "Cuero sintético" },
-      { "label": "Suela", "value": "Goma" }
+      { "label": "Construcción", "value": "Monopieza moldeada sin costuras" },
+      { "label": "Empeine", "value": "Perforado para ventilación" },
+      { "label": "Suela", "value": "Goma con tacos de amortiguación" },
+      { "label": "Calce", "value": "Talón abierto, sin cordones" }
     ],
     "complementaryProducts": [5, 6],
     "recommendedProducts": [7, 8],
