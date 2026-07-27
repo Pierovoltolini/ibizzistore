@@ -16,7 +16,10 @@
 .announcement-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* flex-start + margin:auto en los extremos (y no justify-content:center):
+     con center, cuando el texto desborda en móvil el comienzo queda cortado
+     y es imposible scrollear hasta él. Así centra solo si hay espacio. */
+  justify-content: flex-start;
   height: var(--announcement-height);
   font-family: var(--font-sans);
   font-size: 11px;
@@ -36,6 +39,8 @@
   display: inline-block;
   padding-inline: var(--space-4);
 }
+.announcement-inner span:first-child { margin-left: auto; }
+.announcement-inner span:last-child  { margin-right: auto; }
 
 /* ---------- Header ---------- */
 
@@ -52,7 +57,10 @@
 
 .header-inner {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  /* 1fr auto 1fr también en móvil: con auto 1fr auto el logo quedaba
+     corrido ~40px a la izquierda porque los 3 iconos de la derecha pesan
+     más que la hamburguesa. */
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   height: var(--header-height);
   gap: var(--space-3);
@@ -78,7 +86,15 @@
   align-items: center;
   gap: var(--space-1);
 }
+.header-left  { justify-self: start; }
 .header-right { justify-self: end; }
+
+/* Teléfonos chicos: iconos apenas más angostos para que el logo
+   centrado tenga lugar de verdad. */
+@media (max-width: 479px) {
+  .header-right { gap: 0; }
+  .header-right .icon-btn { width: 36px; }
+}
 
 /* Nav desktop (oculta en móvil) */
 .header-nav {
@@ -243,6 +259,7 @@
 
 .mobile-menu-footer {
   padding: var(--space-5);
+  padding-bottom: calc(var(--space-5) + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--color-border-soft);
   display: flex;
   flex-direction: column;

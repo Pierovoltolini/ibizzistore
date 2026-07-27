@@ -85,6 +85,37 @@
 }
 
 /* ==========================================================
+   MÓVIL / TABLET · ajustes táctiles
+   ========================================================== */
+
+@media (max-width: 1023px) {
+
+  /* iOS hace zoom automático al enfocar campos con fuente menor a 16px.
+     Este archivo carga último, así que estas reglas (misma especificidad)
+     pisan los tamaños chicos de cada formulario. */
+  .form-field input,
+  .form-field select,
+  .form-field textarea,
+  .footer-newsletter-input,
+  .discount-row input,
+  .note-field textarea,
+  .filter-price input,
+  .sort-select {
+    font-size: 16px;
+  }
+
+  /* Checkout en una columna: el resumen del pedido va arriba del
+     formulario, para ver qué se paga antes de llenar los datos. */
+  .checkout-layout .order-summary { order: -1; }
+}
+
+/* Fondo con gradiente fijo: en táctil background-attachment: fixed fuerza
+   repintados costosos al scrollear (iOS directamente lo ignora). */
+@media (hover: none) {
+  body { background-attachment: scroll; }
+}
+
+/* ==========================================================
    HOVER-CAPABLE devices
    Evita estados hover pegados en touch
    ========================================================== */

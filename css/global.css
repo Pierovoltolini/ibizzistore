@@ -303,7 +303,8 @@ body.is-locked {
 .float-ig-btn {
   position: fixed;
   right: var(--space-4);
-  bottom: var(--space-4);
+  /* env(): que el botón no quede pegado a la barra de gestos del iPhone */
+  bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
   z-index: var(--z-sticky);
   width: 52px;
   height: 52px;
@@ -326,6 +327,6 @@ body.is-locked {
 @media (min-width: 768px) {
   .float-ig-btn {
     right: var(--space-6, 2rem);
-    bottom: var(--space-6, 2rem);
+    bottom: calc(var(--space-6, 2rem) + env(safe-area-inset-bottom, 0px));
   }
 }

@@ -33,6 +33,16 @@
     align-items: start;
   }
 }
+/* Tablet (una sola columna): la galería a todo el ancho quedaba enorme y
+   con franjas vacías por el max-height; centrada a 640px se ve prolija. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pp-gallery,
+  .pp-info {
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+}
 
 /* ---------- Galería ---------- */
 
@@ -195,8 +205,13 @@
   font-size: var(--fs-xl);
 }
 .pp-reserve-btn {
-  /* Reusa .btn .btn-primary; solo garantizamos que ocupe el ancho. */
+  /* Reusa .btn .btn-primary; solo garantizamos que ocupe el ancho.
+     white-space normal: "Reservá el tuyo por WhatsApp" no entra en una
+     línea en móvil al lado del botón de favoritos, y .btn trae nowrap. */
   width: 100%;
+  white-space: normal;
+  line-height: 1.35;
+  padding-block: var(--space-2);
 }
 .pp-preorder-hint {
   margin-top: var(--space-3);
@@ -377,6 +392,11 @@
   border-bottom: 1px solid var(--color-border-soft);
   font-size: var(--fs-sm);
 }
+/* En teléfonos angostos la columna de etiquetas se achica para que el
+   valor no quede apretado en 3-4 palabras por línea. */
+@media (max-width: 479px) {
+  .pp-spec-row { grid-template-columns: 104px 1fr; }
+}
 .pp-spec-row:last-child { border-bottom: 0; }
 .pp-spec-row dt {
   color: var(--color-text-muted);
@@ -428,6 +448,8 @@
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--color-border-soft);
   padding: var(--space-3) var(--container-pad);
+  /* Deja libre la barra de gestos del iPhone (safe area inferior). */
+  padding-bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -584,6 +606,7 @@
 
 .filters-drawer-footer {
   padding: var(--space-4) var(--space-5);
+  padding-bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--color-border-soft);
   display: flex;
   gap: var(--space-3);

@@ -96,8 +96,34 @@ export function renderGrid(container, products) {
   wireCardActions(container);
 }
 
+/* En táctil (celular/tablet) no hay hover: el cartel "Reservá el tuyo a
+   mejor precio" de las cards en preventa aparece cuando la card entra en
+   pantalla al deslizar. Un solo observer compartido enciende/apaga la
+   clase .is-inview, y el CSS hace el fade. */
+let _preorderObserver = null;
+
+function watchPreorderCards(scope = document) {
+  if (!window.matchMedia('(hover: none)').matches) return;
+  if (!('IntersectionObserver' in window)) {
+    // Fallback viejo: sin observer, el cartel queda siempre visible.
+    qsa('.product-card.is-preorder', scope).forEach(c => c.classList.add('is-inview'));
+    return;
+  }
+  if (!_preorderObserver) {
+    _preorderObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.target.classList.toggle('is-inview', e.isIntersecting));
+    }, { threshold: 0.4 });
+  }
+  qsa('.product-card.is-preorder', scope).forEach(card => {
+    if (card.dataset.inviewWired) return;
+    card.dataset.inviewWired = '1';
+    _preorderObserver.observe(card);
+  });
+}
+
 /** Wireup para botones favoritos y agregar-al-carrito. */
 export function wireCardActions(scope = document) {
+  watchPreorderCards(scope);
   qsa('[data-fav]', scope).forEach(btn => {
     if (btn.dataset.wired) return;
     btn.dataset.wired = '1';
