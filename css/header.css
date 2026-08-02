@@ -52,7 +52,16 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border-soft);
-  transition: background-color var(--dur-base) var(--ease-out);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out);
+  will-change: transform;
+}
+
+/* Al bajar, el header se corre fuera de pantalla; apenas se scrollea
+   hacia arriba vuelve a entrar (app.js saca la clase). */
+.header.is-hidden {
+  transform: translateY(-100%);
 }
 
 .header-inner {

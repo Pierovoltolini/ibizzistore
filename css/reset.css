@@ -119,7 +119,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* No scroll horizontal en toda la app */
+/* No scroll horizontal en toda la app.
+   Va "clip" y no "hidden": hidden convierte al elemento en contenedor de
+   scroll y eso rompe el position:sticky del header (queda pegado al
+   contenedor y no al viewport, así que se va con el scroll). clip recorta
+   igual pero sin crear contenedor. */
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+@supports not (overflow-x: clip) {
+  html, body { overflow-x: hidden; }
 }

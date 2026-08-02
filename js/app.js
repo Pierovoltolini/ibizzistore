@@ -110,12 +110,42 @@ function updateBadges() {
 
 /* ---------- Header scroll ---------- */
 
+/* El header se esconde al bajar y reaparece apenas se sube un poco, así
+   el menú queda a mano sin tener que volver hasta el tope de la página. */
 function initHeaderScroll() {
   const header = qs('.header');
   if (!header) return;
+
+  // Recién se esconde pasado el primer viewport de contenido: cerca del tope
+  // molesta más de lo que suma.
+  const HIDE_AFTER = 240;
+  // Margen para no reaccionar al temblequeo del dedo ni al rebote de iOS.
+  const DELTA = 6;
+
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const y = Math.max(0, window.scrollY);
+    const diff = y - lastY;
+
+    header.classList.toggle('is-scrolled', y > 40);
+
+    if (Math.abs(diff) < DELTA) return;
+
+    if (diff > 0 && y > HIDE_AFTER) {
+      header.classList.add('is-hidden');   // bajando
+    } else if (diff < 0) {
+      header.classList.remove('is-hidden'); // subiendo: vuelve enseguida
+    }
+    lastY = y;
+  };
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) header.classList.add('is-scrolled');
-    else header.classList.remove('is-scrolled');
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
   }, { passive: true });
 }
 
