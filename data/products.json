@@ -501,6 +501,7 @@
     "currency": "UYU",
     "stock": 0,
     "status": "preorder",
+    "preorderBadge": false,
     "sizes": ["Único"],
     "colors": [
       { "name": "Acero / Cuero negro", "hex": "#1A1A1A" }
@@ -581,6 +582,7 @@
     "currency": "UYU",
     "stock": 0,
     "status": "preorder",
+    "preorderBadge": false,
     "sizes": ["Único"],
     "colors": [
       { "name": "Acero / Cuero azul", "hex": "#1B2A4A" }
@@ -620,6 +622,7 @@
     "currency": "UYU",
     "stock": 0,
     "status": "preorder",
+    "preorderBadge": false,
     "sizes": ["Único"],
     "colors": [
       { "name": "Negro / Acero", "hex": "#1A1A1A" }

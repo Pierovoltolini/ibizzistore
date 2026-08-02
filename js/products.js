@@ -12,6 +12,14 @@ export function preorderMessage(product) {
   return `¡Hola IBIZZI! Vengo de la tienda online y me interesó el ${product.name} que está en preventa. Quiero reservar el mío, ¿cómo sigo?`;
 }
 
+/* Preventa que además se anuncia como "Próximamente": badge amarillo, cartel
+   sobre la foto y sección propia en la home. Un producto en preventa con
+   "preorderBadge": false se muestra como uno más de su categoría —sin ningún
+   "Próximamente"— pero conserva la reserva por WhatsApp. */
+export function isComingSoon(product) {
+  return product.status === 'preorder' && product.preorderBadge !== false;
+}
+
 const DATA_URL = 'data/products.json';
 
 let _products = null;
@@ -28,6 +36,7 @@ export async function loadProducts() {
 export function productCardHTML(product) {
   const discount = product.discount || calcDiscount(product.price, product.oldPrice);
   const isPreorder = product.status === 'preorder';
+  const comingSoon = isComingSoon(product);
   // Preventa no es "agotado": stock 0 es esperable, no debe verse gris ni bloqueado.
   const outOfStock = !isPreorder && (product.stock <= 0 || product.status === 'out_of_stock');
   const hasVariants = (product.sizes?.length > 1) || (product.colors?.length > 1);
@@ -36,19 +45,19 @@ export function productCardHTML(product) {
   const hasPrice = product.price != null;
 
   return `
-    <article class="product-card ${outOfStock ? 'is-sold' : ''} ${isPreorder ? 'is-preorder' : ''}" data-product-id="${product.id}">
+    <article class="product-card ${outOfStock ? 'is-sold' : ''} ${comingSoon ? 'is-preorder' : ''}" data-product-id="${product.id}">
       <a href="product.html?slug=${product.slug}" class="product-card-media" aria-label="${product.name}">
         <img class="product-card-img product-card-img-1" src="${product.images[0]}" alt="${product.name}" loading="lazy">
         <img class="product-card-img product-card-img-2" src="${second}" alt="" loading="lazy" aria-hidden="true">
 
         <div class="product-card-badges">
-          ${isPreorder ? '<span class="label label-preorder">Próximamente</span>' : ''}
-          ${!isPreorder && product.new ? '<span class="label label-new">Nuevo</span>' : ''}
+          ${comingSoon ? '<span class="label label-preorder">Próximamente</span>' : ''}
+          ${!comingSoon && product.new ? '<span class="label label-new">Nuevo</span>' : ''}
           ${discount > 0 ? `<span class="label label-sale">-${discount}%</span>` : ''}
           ${outOfStock ? '<span class="label label-sold">Agotado</span>' : ''}
         </div>
 
-        ${isPreorder ? '<div class="product-card-preorder-banner"><span>Reservá el tuyo a mejor precio</span></div>' : ''}
+        ${comingSoon ? '<div class="product-card-preorder-banner"><span>Reservá el tuyo a mejor precio</span></div>' : ''}
 
         <button class="product-card-fav ${fav ? 'is-active' : ''}" type="button" aria-label="Guardar en favoritos" data-fav="${product.id}">
           <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
@@ -65,7 +74,7 @@ export function productCardHTML(product) {
           ? `<div class="product-card-prices">
                ${product.oldPrice ? `<span class="product-card-old">${formatPrice(product.oldPrice, product.currency)}</span>` : ''}
                ${hasPrice
-                 ? `<span class="product-card-price">${formatPrice(product.price, product.currency)}</span><span class="product-card-preorder-tag">próximamente</span>`
+                 ? `<span class="product-card-price">${formatPrice(product.price, product.currency)}</span>${comingSoon ? '<span class="product-card-preorder-tag">próximamente</span>' : ''}`
                  : `<span class="product-card-preorder-note">Reservá al mejor precio</span>`}
              </div>`
           : `<div class="product-card-prices">
@@ -196,7 +205,7 @@ export function filterNew(products) {
   return products.filter(p => p.new);
 }
 export function filterPreorder(products) {
-  return products.filter(p => p.status === 'preorder');
+  return products.filter(isComingSoon);
 }
 export function filterSale(products) {
   return products.filter(p => (p.discount && p.discount > 0) || (p.oldPrice && p.oldPrice > p.price));
@@ -211,9 +220,10 @@ export async function renderHomeSections() {
     // Destacados
     renderGrid(qs('#home-featured'), filterFeatured(products).slice(0, 8));
 
-    // Relojes (los de preventa van a su propia sección de abajo, no acá)
+    // Relojes (los que se anuncian como "Próximamente" van a su propia
+    // sección de abajo, no acá)
     renderGrid(qs('#home-watches'),
-      filterByCategory(products, 'Relojes').filter(p => p.status !== 'preorder'));
+      filterByCategory(products, 'Relojes').filter(p => !isComingSoon(p)));
 
     // Próximamente / Preventa — la sección se oculta sola si no hay ninguno
     const preorder = filterPreorder(products);

@@ -4,7 +4,7 @@
    ============================================================ */
 
 import { qs, qsa, getQueryParam, formatPrice, calcDiscount, trackPixel, whatsappLink } from './utils.js';
-import { loadProducts, preorderMessage } from './products.js';
+import { loadProducts, preorderMessage, isComingSoon } from './products.js';
 import { addItem } from './cart.js';
 import { toggleFavorite, isFavorite } from './favorites.js';
 import { renderRecommendations, initCarousel } from './recommendations.js';
@@ -62,6 +62,7 @@ function render(p) {
 
   const discount = p.discount || calcDiscount(p.price, p.oldPrice);
   const isPreorder = p.status === 'preorder';
+  const comingSoon = isComingSoon(p);
   const outOfStock = !isPreorder && (p.stock <= 0 || p.status === 'out_of_stock');
 
   // Breadcrumbs
@@ -105,7 +106,7 @@ function render(p) {
     if (p.oldPrice && p.oldPrice > p.price) {
       oldEl.textContent = formatPrice(p.oldPrice, p.currency);
       oldEl.hidden = false;
-      discEl.textContent = isPreorder ? 'Próximamente' : `-${discount}%`;
+      discEl.textContent = comingSoon ? 'Próximamente' : `-${discount}%`;
       discEl.hidden = false;
     } else {
       oldEl.hidden = true;
@@ -156,7 +157,9 @@ function render(p) {
     hint.className = 'pp-preorder-hint';
     hint.textContent = 'Modelo en preventa. Coordinás seña y entrega por WhatsApp y te lo aseguramos al mejor precio de lanzamiento.';
     actions.appendChild(hint);
-    stickyPrice.textContent = p.price != null ? formatPrice(p.price, p.currency) : 'Próximamente';
+    stickyPrice.textContent = p.price != null
+      ? formatPrice(p.price, p.currency)
+      : (comingSoon ? 'Próximamente' : 'A reservar');
     stickyBtn.textContent = 'Reservá el tuyo';
   } else {
     const addBtn = qs('#pp-add-btn');
