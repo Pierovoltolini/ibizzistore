@@ -30,10 +30,36 @@ const DATA_URL = 'data/products.json';
 
 let _products = null;
 
+/**
+ * Pisa el stock estático de products.json con el stock real de
+ * Cloudflare KV (compartido entre todos los visitantes), para los
+ * productos que lo manejan por talle (sizeStock). Si la función no
+ * responde, se sigue usando el número estático — no rompe nada.
+ */
+async function applyLiveStock(products) {
+  const withSizeStock = products.filter(p => p.sizeStock);
+  if (!withSizeStock.length) return;
+  try {
+    const ids = withSizeStock.map(p => p.id).join(',');
+    const res = await fetch(`/api/stock?ids=${ids}`);
+    if (!res.ok) return;
+    const live = await res.json();
+    withSizeStock.forEach(p => {
+      const liveSizeStock = live[p.id];
+      if (!liveSizeStock) return;
+      p.sizeStock = liveSizeStock;
+      p.stock = Object.values(liveSizeStock).reduce((sum, n) => sum + n, 0);
+    });
+  } catch {
+    // Sin conexión a la función: seguimos con los números estáticos.
+  }
+}
+
 /** Carga (o reutiliza caché) el array de productos. */
 export async function loadProducts() {
   if (_products) return _products;
   _products = await fetchJSON(DATA_URL);
+  await applyLiveStock(_products);
   return _products;
 }
 

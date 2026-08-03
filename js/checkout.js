@@ -214,8 +214,23 @@ function confirmOrder(orderData) {
   });
 
   sendOrderEmails(orderData).catch(() => {});
+  decrementStock(orderData).catch(() => {});
 
   showOrderConfirmed(orderData.orderNumber);
+}
+
+/** Avisa al stock compartido (Cloudflare KV) qué se vendió, para que baje
+ *  para todos los visitantes. Idempotente por orderNumber del lado del
+ *  servidor — no importa si esto se llama más de una vez. */
+async function decrementStock(orderData) {
+  await fetch('/api/stock', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      orderNumber: orderData.orderNumber,
+      items: (orderData.items || []).map(i => ({ id: i.id, size: i.size, qty: i.qty }))
+    })
+  });
 }
 
 /**
