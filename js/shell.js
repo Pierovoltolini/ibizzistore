@@ -5,6 +5,8 @@
    <div id="shell-bottom"></div> como puntos de inyección.
    ============================================================ */
 
+import { whatsappLink } from './utils.js';
+
 const shellTopHTML = `
   <!-- Announcement bar -->
   <div class="announcement" role="region" aria-label="Beneficios de compra">
@@ -166,7 +168,7 @@ const shellBottomHTML = `
           <p class="footer-tagline">Indumentaria y accesorios seleccionados para quienes cuidan cada detalle de su estilo.</p>
           <div class="footer-socials">
             <a href="https://instagram.com/ibizzi.official" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
-            <a href="#" aria-label="WhatsApp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3.6-6.7L20 4l-1.3 3.6A8 8 0 0 1 20 12Z"/><path d="M9 10c.5 2 2 3.5 4 4l1.3-1.3c.4-.4 1-.4 1.4-.1l1.8 1.1c.5.3.6 1 .2 1.5-1 1.2-2.6 1.8-4 1.3-2.5-.9-4.5-2.9-5.4-5.4-.5-1.4.1-3 1.3-4 .5-.4 1.2-.3 1.5.2l1.1 1.8c.3.4.3 1-.1 1.4L9 10Z"/></svg></a>
+            <a href="${whatsappLink('¡Hola IBIZZI! Tengo una consulta.')}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3.6-6.7L20 4l-1.3 3.6A8 8 0 0 1 20 12Z"/><path d="M9 10c.5 2 2 3.5 4 4l1.3-1.3c.4-.4 1-.4 1.4-.1l1.8 1.1c.5.3.6 1 .2 1.5-1 1.2-2.6 1.8-4 1.3-2.5-.9-4.5-2.9-5.4-5.4-.5-1.4.1-3 1.3-4 .5-.4 1.2-.3 1.5.2l1.1 1.8c.3.4.3 1-.1 1.4L9 10Z"/></svg></a>
             <a href="#" aria-label="TikTok"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9a3 3 0 1 1-3-3"/><path d="M14 4c0 2 1.5 4 4 4"/></svg></a>
           </div>
         </div>
