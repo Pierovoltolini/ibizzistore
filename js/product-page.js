@@ -118,9 +118,18 @@ function render(p) {
     transferEl.hidden = false;
   }
 
-  // Colores
+  // Colores — si el producto tiene "colorVariants" (varios productos
+  // separados, uno por color) los íconos navegan entre esas fichas.
+  // Si no, es el selector clásico dentro del mismo producto.
   const colorsEl = qs('#pp-colors');
-  if (p.colors?.length) {
+  if (p.colorVariants?.length) {
+    colorsEl.innerHTML = p.colorVariants.map(c => `
+      <button type="button" class="pp-color-swatch ${c.slug === p.slug ? 'is-active' : ''}"
+              data-nav-slug="${c.slug}" aria-label="${c.name}" title="${c.name}"
+              style="background-color:${c.hex};"></button>
+    `).join('');
+    qs('#pp-color-label').textContent = p.colors?.[0]?.name || '';
+  } else if (p.colors?.length) {
     colorsEl.innerHTML = p.colors.map((c, i) => `
       <button type="button" class="pp-color-swatch ${i===0 && selectedColor===c.name?'is-active':''}"
               data-color="${c.name}"${c.image != null ? ` data-image="${c.image}"` : ''} aria-label="${c.name}" title="${c.name}"
@@ -131,12 +140,19 @@ function render(p) {
     qs('#pp-colors-block').hidden = true;
   }
 
-  // Talles
+  // Talles — si hay stock por talle (sizeStock), los talles agotados
+  // quedan deshabilitados y los que están por acabarse muestran cuántos quedan.
   const sizesEl = qs('#pp-sizes');
   if (p.sizes?.length) {
-    sizesEl.innerHTML = p.sizes.map(s => `
-      <button type="button" class="pp-size-btn ${selectedSize===s?'is-active':''}" data-size="${s}">${s}</button>
-    `).join('');
+    sizesEl.innerHTML = p.sizes.map(s => {
+      const left = p.sizeStock ? (p.sizeStock[s] ?? 0) : null;
+      const disabled = left === 0;
+      const low = left != null && left > 0 && left <= 2;
+      return `
+        <button type="button" class="pp-size-btn ${selectedSize===s?'is-active':''}" data-size="${s}" ${disabled ? 'disabled' : ''}>
+          ${s}${low ? `<span class="pp-size-low">¡Quedan ${left}!</span>` : ''}
+        </button>`;
+    }).join('');
   } else {
     qs('#pp-sizes-block').hidden = true;
   }
@@ -279,10 +295,19 @@ function wireGallery() {
 /* ---------- Variantes ---------- */
 
 function wireVariants() {
-  qsa('.pp-color-swatch').forEach(btn => {
+  // Swatches que navegan a otra ficha (colorVariants: un producto por color).
+  qsa('.pp-color-swatch[data-nav-slug]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const slug = btn.dataset.navSlug;
+      if (slug === currentProduct.slug) return; // ya estamos viendo este color
+      window.location.href = `product.html?slug=${slug}`;
+    });
+  });
+  // Swatches clásicos (un solo producto con varios colores).
+  qsa('.pp-color-swatch[data-color]').forEach(btn => {
     btn.addEventListener('click', () => {
       selectedColor = btn.dataset.color;
-      qsa('.pp-color-swatch').forEach(b => b.classList.remove('is-active'));
+      qsa('.pp-color-swatch[data-color]').forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
       qs('#pp-color-label').textContent = selectedColor;
       // Si el color tiene una foto asociada, llevamos la galería a esa imagen

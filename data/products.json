@@ -293,11 +293,17 @@
     "oldPrice": 3200,
     "discount": 13,
     "currency": "UYU",
-    "stock": 8,
+    "stock": 13,
     "status": "available",
-    "sizes": ["39", "40", "41", "42", "43", "44"],
+    "sizes": ["40/41", "42/43", "44/45"],
+    "sizeStock": { "40/41": 5, "42/43": 6, "44/45": 2 },
     "colors": [
       { "name": "Negro", "hex": "#101010" }
+    ],
+    "colorVariants": [
+      { "name": "Negro", "hex": "#101010", "slug": "nike-mind-premium-negro" },
+      { "name": "Gris", "hex": "#8A8A8A", "slug": "nike-mind-premium-gris" },
+      { "name": "Rojo", "hex": "#B03A2E", "slug": "nike-mind-premium-rojo" }
     ],
     "images": [
       "assets/products/nike-mind-premium-negro-1.jpg",
@@ -334,11 +340,17 @@
     "oldPrice": 3200,
     "discount": 13,
     "currency": "UYU",
-    "stock": 8,
+    "stock": 2,
     "status": "available",
-    "sizes": ["39", "40", "41", "42", "43", "44"],
+    "sizes": ["42/43", "44/45"],
+    "sizeStock": { "42/43": 1, "44/45": 1 },
     "colors": [
       { "name": "Gris", "hex": "#8A8A8A" }
+    ],
+    "colorVariants": [
+      { "name": "Negro", "hex": "#101010", "slug": "nike-mind-premium-negro" },
+      { "name": "Gris", "hex": "#8A8A8A", "slug": "nike-mind-premium-gris" },
+      { "name": "Rojo", "hex": "#B03A2E", "slug": "nike-mind-premium-rojo" }
     ],
     "images": [
       "assets/products/nike-mind-premium-gris-1.jpg",
@@ -374,11 +386,17 @@
     "oldPrice": 3200,
     "discount": 13,
     "currency": "UYU",
-    "stock": 8,
+    "stock": 1,
     "status": "available",
-    "sizes": ["39", "40", "41", "42", "43", "44"],
+    "sizes": ["40/41"],
+    "sizeStock": { "40/41": 1 },
     "colors": [
       { "name": "Rojo", "hex": "#B03A2E" }
+    ],
+    "colorVariants": [
+      { "name": "Negro", "hex": "#101010", "slug": "nike-mind-premium-negro" },
+      { "name": "Gris", "hex": "#8A8A8A", "slug": "nike-mind-premium-gris" },
+      { "name": "Rojo", "hex": "#B03A2E", "slug": "nike-mind-premium-rojo" }
     ],
     "images": [
       "assets/products/nike-mind-premium-rojo-1.jpg",
