@@ -8,6 +8,7 @@
 
 import { qs, qsa, formatPrice, storage, bus, getDiscount, clearDiscount, getQueryParam, trackPixel } from './utils.js';
 import { getCart, subtotal, clearCart } from './cart.js';
+import { sendOrderEmails } from './email-notifications.js';
 
 const NOTE_KEY = 'ibizzi_cart_note';
 
@@ -213,6 +214,8 @@ function confirmOrder(orderData) {
     value: orderData.total,
     currency: 'UYU'
   });
+
+  sendOrderEmails(orderData).catch(() => {});
 
   showOrderConfirmed(orderData.orderNumber);
 }
