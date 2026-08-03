@@ -15,7 +15,7 @@ export function preorderMessage(product) {
 /** Línea chica con el precio pagando por transferencia (8% off), debajo del precio normal. */
 function transferPriceHTML(product) {
   if (product.price == null) return '';
-  return `<div class="product-card-transfer">💸 Transferencia ${formatPrice(transferPrice(product.price), product.currency)}</div>`;
+  return `<div class="product-card-transfer">🏦 Transferencia ${formatPrice(transferPrice(product.price), product.currency)}</div>`;
 }
 
 /* Preventa que además se anuncia como "Próximamente": badge amarillo, cartel

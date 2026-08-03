@@ -201,7 +201,8 @@
 .pp-transfer {
   font-family: var(--font-sans);
   font-size: var(--fs-sm);
-  color: var(--color-text-muted);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-5);
 }
 

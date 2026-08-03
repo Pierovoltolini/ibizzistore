@@ -133,9 +133,10 @@
 
 .product-card-transfer {
   font-family: var(--font-sans);
-  font-size: 11px;
-  color: var(--color-text-muted);
-  margin-top: 2px;
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary);
+  margin-top: 3px;
 }
 
 .product-card-actions {

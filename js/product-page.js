@@ -114,7 +114,7 @@ function render(p) {
       oldEl.hidden = true;
       discEl.hidden = true;
     }
-    transferEl.textContent = `💸 Transferencia ${formatPrice(transferPrice(p.price), p.currency)}`;
+    transferEl.textContent = `🏦 Transferencia ${formatPrice(transferPrice(p.price), p.currency)}`;
     transferEl.hidden = false;
   }
 
