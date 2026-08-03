@@ -499,8 +499,8 @@
     "oldPrice": null,
     "discount": 0,
     "currency": "UYU",
-    "stock": 0,
-    "status": "preorder",
+    "stock": 4,
+    "status": "available",
     "sizes": ["Único"],
     "colors": [
       { "name": "Acero / Esfera negra", "hex": "#2B2E33" }
