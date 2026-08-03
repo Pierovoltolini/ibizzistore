@@ -5,7 +5,7 @@
    sin necesitar backend de correo propio. Se llama desde
    checkout.js apenas se confirma un pedido.
 
-   ⚠️ Completá estas 5 constantes con los datos de tu cuenta de
+   ⚠️ Completá estas 4 constantes con los datos de tu cuenta de
    EmailJS (Account → API Keys, Email Services, Email Templates)
    para que esto funcione. Hasta entonces, no hace nada (falla en
    silencio, no rompe el checkout).
@@ -13,14 +13,13 @@
 
 import { formatPrice } from './utils.js';
 
-const EMAILJS_PUBLIC_KEY = 'PENDIENTE';
-const EMAILJS_SERVICE_ID = 'PENDIENTE';
-const TEMPLATE_STORE = 'PENDIENTE';              // aviso de pedido nuevo, para nosotros
-const TEMPLATE_CUSTOMER_PENDING = 'PENDIENTE';   // cliente: "recibimos tu pedido"
-const TEMPLATE_CUSTOMER_CONFIRMED = 'PENDIENTE'; // cliente: "pedido confirmado"
+const EMAILJS_PUBLIC_KEY = 'XtMK4MyE07Vu1U7aQ';
+const EMAILJS_SERVICE_ID = 'service_sa6pi0r';
+const TEMPLATE_STORE = 'template_bbicvk4';    // aviso de pedido nuevo, para nosotros
+const TEMPLATE_CUSTOMER = 'template_yq4njgp'; // cliente: "recibimos tu pedido" + confirmación, en uno solo
 
 const isConfigured = () =>
-  ![EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, TEMPLATE_STORE, TEMPLATE_CUSTOMER_PENDING, TEMPLATE_CUSTOMER_CONFIRMED]
+  ![EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, TEMPLATE_STORE, TEMPLATE_CUSTOMER]
     .includes('PENDIENTE');
 
 let _ready = false;
@@ -77,10 +76,10 @@ function buildParams(orderData) {
 }
 
 /**
- * Manda los 3 mails del pedido: aviso a la tienda + los 2 al cliente.
- * Cada uno falla en silencio si EmailJS no está configurado, no cargó,
- * o hay un error de red — nunca bloquea ni rompe la confirmación del
- * pedido en pantalla.
+ * Manda los 2 mails del pedido: aviso a la tienda + confirmación al
+ * cliente. Cada uno falla en silencio si EmailJS no está configurado,
+ * no cargó, o hay un error de red — nunca bloquea ni rompe la
+ * confirmación del pedido en pantalla.
  */
 export async function sendOrderEmails(orderData) {
   if (!isConfigured()) {
@@ -94,7 +93,7 @@ export async function sendOrderEmails(orderData) {
   }
 
   const params = buildParams(orderData);
-  const sends = [TEMPLATE_STORE, TEMPLATE_CUSTOMER_PENDING, TEMPLATE_CUSTOMER_CONFIRMED]
+  const sends = [TEMPLATE_STORE, TEMPLATE_CUSTOMER]
     .map(templateId =>
       emailjs.send(EMAILJS_SERVICE_ID, templateId, params)
         .catch(err => console.error(`[email-notifications] Fallo al mandar ${templateId}:`, err))
