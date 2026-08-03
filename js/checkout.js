@@ -6,7 +6,7 @@
    Pages Function) y redirige al cliente a pagar en Mercado Pago.
    ============================================================ */
 
-import { qs, qsa, formatPrice, storage, bus, getDiscount, clearDiscount, getQueryParam, trackPixel } from './utils.js';
+import { qs, qsa, formatPrice, storage, bus, getDiscount, clearDiscount, getQueryParam, trackPixel, TRANSFER_DISCOUNT_PERCENT } from './utils.js';
 import { getCart, subtotal, clearCart } from './cart.js';
 import { sendOrderEmails } from './email-notifications.js';
 
@@ -20,11 +20,9 @@ const SHIPPING_METHODS = [
 
 const PAYMENT_METHODS = [
   { id: 'mp',       name: 'Mercado Pago',          desc: 'Todas las tarjetas · Hasta 12 cuotas' },
-  { id: 'transfer', name: 'Transferencia bancaria', desc: '10% de descuento en el total' },
+  { id: 'transfer', name: 'Transferencia bancaria', desc: `${TRANSFER_DISCOUNT_PERCENT}% de descuento en el total` },
   { id: 'cash',     name: 'Efectivo al retirar',    desc: 'Solo retiro en local' }
 ];
-
-const TRANSFER_DISCOUNT_PERCENT = 10;
 
 const state = {
   shipping: SHIPPING_METHODS[0],
@@ -35,7 +33,7 @@ const state = {
 
 /**
  * Aplica primero el código de descuento (si hay uno cargado desde el
- * carrito) y luego, si corresponde, el 10% por transferencia bancaria
+ * carrito) y luego, si corresponde, el descuento por transferencia bancaria
  * (ver PAYMENT_METHODS / FAQ). Ambos se aplican sobre el subtotal, no
  * sobre el envío.
  */

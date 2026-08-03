@@ -32,6 +32,15 @@ export function calcDiscount(price, oldPrice) {
   return Math.round(((oldPrice - price) / oldPrice) * 100);
 }
 
+/** % de descuento pagando por transferencia bancaria. Un solo lugar para
+ *  no desincronizar el cartelito del precio con el descuento real del checkout. */
+export const TRANSFER_DISCOUNT_PERCENT = 8;
+
+/** Precio final pagando por transferencia bancaria. */
+export function transferPrice(price) {
+  return Math.round(price * (1 - TRANSFER_DISCOUNT_PERCENT / 100));
+}
+
 /** Slugify simple para búsquedas y comparaciones. */
 export function slugify(str) {
   return String(str)

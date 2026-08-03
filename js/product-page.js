@@ -3,7 +3,7 @@
    Detalle de producto: galería + variantes + sticky bar móvil
    ============================================================ */
 
-import { qs, qsa, getQueryParam, formatPrice, calcDiscount, trackPixel, whatsappLink } from './utils.js';
+import { qs, qsa, getQueryParam, formatPrice, calcDiscount, trackPixel, whatsappLink, transferPrice } from './utils.js';
 import { loadProducts, preorderMessage, isComingSoon } from './products.js';
 import { addItem } from './cart.js';
 import { toggleFavorite, isFavorite } from './favorites.js';
@@ -95,12 +95,14 @@ function render(p) {
   const priceEl = qs('#pp-price');
   const oldEl = qs('#pp-old-price');
   const discEl = qs('#pp-discount');
+  const transferEl = qs('#pp-transfer');
   if (isPreorder && p.price == null) {
     // Preventa sin precio confirmado: mostramos el gancho en vez del número.
     priceEl.textContent = 'Reservá al mejor precio';
     priceEl.classList.add('pp-price-preorder');
     oldEl.hidden = true;
     discEl.hidden = true;
+    transferEl.hidden = true;
   } else {
     priceEl.textContent = formatPrice(p.price, p.currency);
     if (p.oldPrice && p.oldPrice > p.price) {
@@ -112,6 +114,8 @@ function render(p) {
       oldEl.hidden = true;
       discEl.hidden = true;
     }
+    transferEl.textContent = `💸 Transferencia ${formatPrice(transferPrice(p.price), p.currency)}`;
+    transferEl.hidden = false;
   }
 
   // Colores

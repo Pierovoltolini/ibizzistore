@@ -3,13 +3,19 @@
    Tarjeta de producto reutilizable + renderers de grillas.
    ============================================================ */
 
-import { qs, qsa, fetchJSON, formatPrice, calcDiscount, trackPixel, whatsappLink } from './utils.js';
+import { qs, qsa, fetchJSON, formatPrice, calcDiscount, trackPixel, whatsappLink, transferPrice } from './utils.js';
 import { addItem } from './cart.js';
 import { toggleFavorite, isFavorite } from './favorites.js';
 
 /** Mensaje de WhatsApp pre-cargado para reservar un producto en preventa. */
 export function preorderMessage(product) {
   return `¡Hola IBIZZI! Vengo de la tienda online y me interesó el ${product.name} que está en preventa. Quiero reservar el mío, ¿cómo sigo?`;
+}
+
+/** Línea chica con el precio pagando por transferencia (8% off), debajo del precio normal. */
+function transferPriceHTML(product) {
+  if (product.price == null) return '';
+  return `<div class="product-card-transfer">💸 Transferencia ${formatPrice(transferPrice(product.price), product.currency)}</div>`;
 }
 
 /* Preventa que además se anuncia como "Próximamente": badge amarillo, cartel
@@ -76,11 +82,13 @@ export function productCardHTML(product) {
                ${hasPrice
                  ? `<span class="product-card-price">${formatPrice(product.price, product.currency)}</span>${comingSoon ? '<span class="product-card-preorder-tag">próximamente</span>' : ''}`
                  : `<span class="product-card-preorder-note">Reservá al mejor precio</span>`}
-             </div>`
+             </div>
+             ${transferPriceHTML(product)}`
           : `<div class="product-card-prices">
                ${product.oldPrice ? `<span class="product-card-old">${formatPrice(product.oldPrice, product.currency)}</span>` : ''}
                <span class="product-card-price">${formatPrice(product.price, product.currency)}</span>
-             </div>`}
+             </div>
+             ${transferPriceHTML(product)}`}
         <div class="product-card-actions">
           <a href="product.html?slug=${product.slug}" class="btn btn-secondary btn-sm btn-block">Ver producto</a>
           ${isPreorder

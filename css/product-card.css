@@ -131,6 +131,13 @@
   text-decoration: line-through;
 }
 
+.product-card-transfer {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
 .product-card-actions {
   /* auto empuja las acciones al fondo (alinea los botones entre cards);
      el padding garantiza un mínimo de aire sobre el botón. */

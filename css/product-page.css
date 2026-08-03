@@ -179,7 +179,7 @@
   display: flex;
   align-items: baseline;
   gap: var(--space-3);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-2);
 }
 .pp-price {
   font-family: var(--font-sans);
@@ -197,6 +197,12 @@
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
   letter-spacing: var(--ls-wider);
+}
+.pp-transfer {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
 }
 
 /* Preventa */
