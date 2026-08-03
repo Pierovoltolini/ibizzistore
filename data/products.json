@@ -260,7 +260,6 @@
       { "name": "Crema", "hex": "#EDE0C8" }
     ],
     "images": [
-      "assets/products/nike-mind-retro-crema-1.jpg",
       "assets/products/nike-mind-retro-crema-2.jpg",
       "assets/products/nike-mind-retro-crema-3.jpg"
     ],
@@ -301,8 +300,7 @@
       { "name": "Blanco", "hex": "#F5F3EE" }
     ],
     "images": [
-      "assets/placeholders/product-09-1.svg",
-      "assets/placeholders/product-09-2.svg"
+      "assets/products/nike-mind-retro-blanco-1.jpg"
     ],
     "video": null,
     "featured": false,
