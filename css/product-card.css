@@ -120,7 +120,7 @@
 .product-card-price {
   font-family: var(--font-sans);
   font-size: var(--fs-base);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-bold);
   color: var(--color-text-primary);
   letter-spacing: 0.02em;
 }
@@ -139,7 +139,7 @@
   margin-top: 3px;
 }
 .product-card-transfer strong {
-  color: var(--color-success);
+  color: var(--color-text-primary);
   font-weight: var(--fw-bold);
 }
 

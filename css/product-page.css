@@ -190,7 +190,7 @@
 .pp-price {
   font-family: var(--font-sans);
   font-size: var(--fs-2xl);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-bold);
   color: var(--color-text-primary);
 }
 .pp-old-price {
@@ -217,7 +217,7 @@
   margin-bottom: var(--space-5);
 }
 .pp-transfer strong {
-  color: var(--color-success);
+  color: var(--color-text-primary);
   font-weight: var(--fw-bold);
 }
 
