@@ -3,7 +3,7 @@
    Detalle de producto: galería + variantes + sticky bar móvil
    ============================================================ */
 
-import { qs, qsa, getQueryParam, formatPrice, calcDiscount, trackPixel, whatsappLink, transferPrice } from './utils.js';
+import { qs, qsa, getQueryParam, formatPrice, calcDiscount, trackPixel, whatsappLink, transferPrice, TRANSFER_DISCOUNT_PERCENT } from './utils.js';
 import { loadProducts, preorderMessage, isComingSoon } from './products.js';
 import { addItem } from './cart.js';
 import { toggleFavorite, isFavorite } from './favorites.js';
@@ -118,7 +118,7 @@ function render(p) {
     }
     installmentsEl.textContent = '💳 Hasta 12 cuotas sin interés';
     installmentsEl.hidden = false;
-    transferEl.innerHTML = `🏦 Transferencia <strong>${formatPrice(transferPrice(p.price), p.currency)}</strong>`;
+    transferEl.innerHTML = `🏦 Transferencia <span class="transfer-badge">${TRANSFER_DISCOUNT_PERCENT}% OFF</span> <strong>${formatPrice(transferPrice(p.price), p.currency)}</strong>`;
     transferEl.classList.add('anim-fade-up', 'anim-delay-1');
     transferEl.hidden = false;
   }

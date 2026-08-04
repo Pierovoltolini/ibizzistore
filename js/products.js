@@ -3,7 +3,7 @@
    Tarjeta de producto reutilizable + renderers de grillas.
    ============================================================ */
 
-import { qs, qsa, fetchJSON, formatPrice, calcDiscount, trackPixel, whatsappLink, transferPrice } from './utils.js';
+import { qs, qsa, fetchJSON, formatPrice, calcDiscount, trackPixel, whatsappLink, transferPrice, TRANSFER_DISCOUNT_PERCENT } from './utils.js';
 import { addItem } from './cart.js';
 import { toggleFavorite, isFavorite } from './favorites.js';
 
@@ -12,10 +12,10 @@ export function preorderMessage(product) {
   return `¡Hola IBIZZI! Vengo de la tienda online y me interesó el ${product.name} que está en preventa. Quiero reservar el mío, ¿cómo sigo?`;
 }
 
-/** Línea chica con el precio pagando por transferencia (8% off), debajo del precio normal. */
+/** Línea chica con el precio pagando por transferencia, debajo del precio normal. */
 function transferPriceHTML(product) {
   if (product.price == null) return '';
-  return `<div class="product-card-transfer anim-fade-up anim-delay-1">🏦 Transferencia <strong>${formatPrice(transferPrice(product.price), product.currency)}</strong></div>`;
+  return `<div class="product-card-transfer anim-fade-up anim-delay-1">🏦 Transferencia <span class="transfer-badge">${TRANSFER_DISCOUNT_PERCENT}% OFF</span> <strong>${formatPrice(transferPrice(product.price), product.currency)}</strong></div>`;
 }
 
 /** Línea chica con el tiempo de entrega ("Comprá hoy, recibís mañana" / "Entrega en 10 días").
