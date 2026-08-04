@@ -118,7 +118,8 @@ function render(p) {
     }
     installmentsEl.textContent = '💳 Hasta 12 cuotas sin interés';
     installmentsEl.hidden = false;
-    transferEl.textContent = `🏦 Transferencia ${formatPrice(transferPrice(p.price), p.currency)}`;
+    transferEl.innerHTML = `🏦 Transferencia <strong>${formatPrice(transferPrice(p.price), p.currency)}</strong>`;
+    transferEl.classList.add('anim-fade-up', 'anim-delay-1');
     transferEl.hidden = false;
   }
 

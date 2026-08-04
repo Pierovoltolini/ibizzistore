@@ -13,9 +13,12 @@ import { sendOrderEmails } from './email-notifications.js';
 const NOTE_KEY = 'ibizzi_cart_note';
 
 const SHIPPING_METHODS = [
-  { id: 'mvd',      name: 'Montevideo · 24-48 hs (Tres Cruces)',           price: 190 },
-  { id: 'interior', name: 'Interior · DAC 24-72 hs',                       price: 290 },
-  { id: 'pickup',   name: 'Retiro en local',                               price: 0   }
+  { id: 'mvd',      name: 'Montevideo · 4 a 24 hs (Tres Cruces)', price: 0,
+    desc: 'Envío a coordinar' },
+  { id: 'interior', name: 'Interior · DAC 24-72 hs',              price: 0,
+    desc: 'Envío por DAC — si tenés agencia de preferencia, avisanos en la nota del pedido' },
+  { id: 'pickup',   name: 'Retiro en local',                      price: 0,
+    desc: 'Entrega estimada según zona' }
 ];
 
 const PAYMENT_METHODS = [
@@ -80,7 +83,7 @@ function renderSummary() {
   `).join('');
 
   qs('#checkout-subtotal').textContent = formatPrice(sub);
-  qs('#checkout-shipping').textContent = shipping === 0 ? 'Gratis' : formatPrice(shipping);
+  qs('#checkout-shipping').textContent = state.shipping.id === 'pickup' ? 'Gratis' : 'A coordinar';
 
   const discountRow = qs('#checkout-discount-row');
   if (discountRow) {
@@ -104,9 +107,9 @@ function renderShipping() {
       <div class="checkout-radio-body">
         <div>
           <div class="checkout-radio-name">${s.name}</div>
-          <div class="checkout-radio-desc">Entrega estimada según zona</div>
+          <div class="checkout-radio-desc">${s.desc}</div>
         </div>
-        <div class="checkout-radio-price">${s.price === 0 ? 'Gratis' : formatPrice(s.price)}</div>
+        <div class="checkout-radio-price">${s.id === 'pickup' ? 'Gratis' : 'A coordinar'}</div>
       </div>
     </label>
   `).join('');

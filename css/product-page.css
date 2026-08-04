@@ -216,6 +216,10 @@
   color: var(--color-text-secondary);
   margin-bottom: var(--space-5);
 }
+.pp-transfer strong {
+  color: var(--color-success);
+  font-weight: var(--fw-bold);
+}
 
 /* Preventa */
 .pp-price-preorder {

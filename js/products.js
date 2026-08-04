@@ -15,7 +15,7 @@ export function preorderMessage(product) {
 /** Línea chica con el precio pagando por transferencia (8% off), debajo del precio normal. */
 function transferPriceHTML(product) {
   if (product.price == null) return '';
-  return `<div class="product-card-transfer">🏦 Transferencia ${formatPrice(transferPrice(product.price), product.currency)}</div>`;
+  return `<div class="product-card-transfer anim-fade-up anim-delay-1">🏦 Transferencia <strong>${formatPrice(transferPrice(product.price), product.currency)}</strong></div>`;
 }
 
 /** Línea chica con el tiempo de entrega ("Comprá hoy, recibís mañana" / "Entrega en 10 días"). */

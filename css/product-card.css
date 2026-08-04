@@ -138,6 +138,10 @@
   color: var(--color-text-secondary);
   margin-top: 3px;
 }
+.product-card-transfer strong {
+  color: var(--color-success);
+  font-weight: var(--fw-bold);
+}
 
 .product-card-delivery {
   font-family: var(--font-sans);

@@ -164,9 +164,9 @@ export const bus = {
 
 /**
  * Número de WhatsApp de la tienda, en formato internacional sin "+",
- * espacios ni guiones (ej: 59891929940 para un 091 929 940 uruguayo).
+ * espacios ni guiones (ej: 59894990760 para un 094 990 760 uruguayo).
  */
-export const STORE_WHATSAPP = '59891929940';
+export const STORE_WHATSAPP = '59894990760';
 
 /** Arma un link de WhatsApp (wa.me) con un mensaje pre-cargado. */
 export function whatsappLink(message = '') {
