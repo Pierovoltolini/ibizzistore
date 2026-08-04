@@ -3,7 +3,7 @@
 Tienda online de indumentaria, relojes, accesorios y zuecos Nike Mind.
 HTML + CSS + JavaScript modular. Datos en JSON. Sin frameworks.
 
-**Frase:** *Vestite como querés que te recuerden.*
+**Frase:** *La elegancia está en los detalles.*
 
 ---
 
