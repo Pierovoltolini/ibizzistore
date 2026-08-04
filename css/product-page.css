@@ -48,6 +48,11 @@
 
 .pp-gallery {
   position: relative;
+  /* Es columna de un grid: sin esto, la fila de miniaturas (que no
+     hace wrap a propósito, para poder scrollearla) puede "empujar"
+     la columna entera más ancha que la pantalla en productos con
+     muchas fotos, cortando el resto de la página en mobile. */
+  min-width: 0;
 }
 
 .pp-gallery-main {
