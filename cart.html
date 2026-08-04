@@ -110,6 +110,22 @@
       </aside>
 
     </div>
+
+    <!-- Completá tu look -->
+    <section id="cart-complete-section" class="section container-wide" style="padding-inline: 0;" hidden>
+      <span class="section-eyebrow" style="display:block;text-align:center;">Curaduría</span>
+      <h2 class="section-title">Completá tu look</h2>
+      <p class="section-subtitle">Sumá los detalles que hacen la diferencia</p>
+      <div class="carousel">
+        <button class="carousel-prev" type="button" aria-label="Anterior">
+          <svg class="icon" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg>
+        </button>
+        <div id="cart-complete-list" class="carousel-scroller"></div>
+        <button class="carousel-next" type="button" aria-label="Siguiente">
+          <svg class="icon" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+        </button>
+      </div>
+    </section>
   </main>
 
   <div id="shell-bottom"></div>
@@ -118,6 +134,8 @@
     import './js/app.js';
     import { qs, formatPrice, bus, applyDiscountCode, getDiscount } from './js/utils.js';
     import { getCart, subtotal, updateQty, removeItem, makeKey } from './js/cart.js';
+    import { productCardHTML, wireCardActions } from './js/products.js';
+    import { getCartComplementary, initCarousel } from './js/recommendations.js';
 
     const NOTE_KEY = 'ibizzi_cart_note';
 
@@ -220,12 +238,31 @@
       });
     }
 
+    /** "Completá tu look": sugerencias armadas a partir de lo que hay
+     *  en el carrito (no de un solo producto), sin repetir nada que
+     *  ya esté agregado. Se recalcula cada vez que cambia el carrito. */
+    async function renderCartComplete() {
+      const section = qs('#cart-complete-section');
+      const list = qs('#cart-complete-list');
+      if (!section || !list) return;
+      const picks = await getCartComplementary(getCart());
+      section.hidden = picks.length === 0;
+      if (picks.length === 0) return;
+      list.innerHTML = picks.map(productCardHTML).join('');
+      wireCardActions(list);
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       renderCartPage();
+      renderCartComplete();
       initDiscountForm();
       initNoteField();
+      initCarousel('#cart-complete-list');
     });
-    bus.on('cart:updated', renderCartPage);
+    bus.on('cart:updated', () => {
+      renderCartPage();
+      renderCartComplete();
+    });
   </script>
 </body>
 </html>

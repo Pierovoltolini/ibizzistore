@@ -14,6 +14,34 @@ function findByIds(products, ids) {
     .filter(p => p && p.stock > 0);
 }
 
+/**
+ * "Completá tu look" para el carrito: junta las sugerencias de
+ * complementaryProducts de TODO lo que hay en el carrito (no de un
+ * solo producto), sin repetir y sin sugerir algo que ya está en el
+ * carrito. Así con un buzo + un zueco ya en el carrito, no repite
+ * sugerencias redundantes entre sí.
+ */
+export async function getCartComplementary(cart, max = 8) {
+  if (!cart?.length) return [];
+  const products = await loadProducts();
+  const cartIds = new Set(cart.map(i => i.id));
+  const seen = new Set();
+  const picks = [];
+
+  cart.forEach(item => {
+    const product = products.find(p => p.id === item.id);
+    (product?.complementaryProducts || []).forEach(id => {
+      if (cartIds.has(id) || seen.has(id)) return;
+      const candidate = products.find(p => p.id === id);
+      if (!candidate || candidate.stock <= 0) return;
+      seen.add(id);
+      picks.push(candidate);
+    });
+  });
+
+  return picks.slice(0, max);
+}
+
 export async function renderRecommendations(product) {
   const products = await loadProducts();
 
