@@ -65,7 +65,19 @@ function renderResults(products) {
   const count = qs('#products-count');
   const filtered = applySort(applyFilters(products));
   if (count) count.textContent = `${filtered.length} ${filtered.length === 1 ? 'producto' : 'productos'}`;
-  renderGrid(grid, filtered);
+
+  // Los "hechos a pedido" (hoy, relojes) se muestran en su propia sección
+  // aparte, debajo de los que hay en stock — no mezclados en la misma grilla.
+  const mainItems = filtered.filter(p => !p.madeToOrder);
+  const moreItems = filtered.filter(p => p.madeToOrder);
+
+  renderGrid(grid, mainItems);
+
+  const moreSection = qs('#products-more-section');
+  if (moreSection) {
+    moreSection.hidden = moreItems.length === 0;
+    if (moreItems.length > 0) renderGrid(qs('#products-grid-more'), moreItems);
+  }
 }
 
 function buildFilterUI(products) {

@@ -605,6 +605,21 @@
   .products-layout { grid-template-columns: 260px 1fr; gap: var(--space-7); }
 }
 
+.products-content {
+  min-width: 0;
+}
+
+/* "Más relojes" (hechos a pedido): separados de los que hay en stock,
+   con línea + título propio, para que no se vean como una cosa sola. */
+.products-more-section {
+  margin-top: var(--space-8);
+}
+.products-divider {
+  border: none;
+  border-top: 1px solid var(--color-border-soft);
+  margin-bottom: var(--space-6);
+}
+
 /* Sidebar (desktop) / Drawer (mobile) */
 .filters-sidebar {
   display: none;

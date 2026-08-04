@@ -109,7 +109,17 @@
       </aside>
 
       <!-- Grid -->
-      <div id="products-grid" class="products-grid" aria-live="polite"></div>
+      <div class="products-content">
+        <div id="products-grid" class="products-grid" aria-live="polite"></div>
+
+        <!-- Relojes hechos a pedido: aparecen separados, debajo de los que hay en stock -->
+        <section id="products-more-section" class="products-more-section" hidden>
+          <hr class="products-divider">
+          <h2 class="section-title">Más relojes</h2>
+          <p class="section-subtitle">Hechos a pedido · Entrega en 10 días</p>
+          <div id="products-grid-more" class="products-grid" aria-live="polite"></div>
+        </section>
+      </div>
     </div>
 
   </main>
