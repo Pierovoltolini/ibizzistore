@@ -41,87 +41,7 @@
       { "label": "Cuidados", "value": "Lavar a máquina, agua fría" }
     ],
     "complementaryProducts": [7, 10],
-    "recommendedProducts": [13, 3],
-    "reviews": []
-  },
-  {
-    "id": 2,
-    "slug": "buzo-angeles-off-white",
-    "sku": "IBZ-BUZ-002",
-    "name": "Buzo Ángeles Off White",
-    "brand": "Ángeles",
-    "category": "Indumentaria",
-    "subcategory": "Buzos",
-    "shortDescription": "Buzo en tono off white, algodón afelpado.",
-    "longDescription": "Buzo Ángeles en tono off white, algodón afelpado de buen calce. Cuello redondo, puños y cintura elastizados.",
-    "price": 2280,
-    "oldPrice": null,
-    "discount": 0,
-    "currency": "UYU",
-    "stock": 3,
-    "status": "available",
-    "deliveryNote": "Comprá hoy, recibís mañana",
-    "sizes": ["S", "M", "L"],
-    "colors": [
-      { "name": "Off White", "hex": "#EDE6DA" }
-    ],
-    "images": [
-      "assets/placeholders/product-02-1.svg",
-      "assets/placeholders/product-02-2.svg"
-    ],
-    "video": null,
-    "featured": true,
-    "new": true,
-    "bestSeller": false,
-    "sold": 0,
-    "tags": ["buzo", "angeles", "off white"],
-    "specifications": [
-      { "label": "Material", "value": "Algodón afelpado" },
-      { "label": "Corte", "value": "Regular fit" },
-      { "label": "Cuidados", "value": "Lavar a máquina, agua fría" }
-    ],
-    "complementaryProducts": [8, 11],
-    "recommendedProducts": [1, 3],
-    "reviews": []
-  },
-  {
-    "id": 3,
-    "slug": "buzo-brzco-oscuro",
-    "sku": "IBZ-BUZ-003",
-    "name": "Buzo BRZCO Oscuro",
-    "brand": "BRZCO",
-    "category": "Indumentaria",
-    "subcategory": "Buzos",
-    "shortDescription": "Buzo oversize en tono oscuro, mismo modelo que el gris.",
-    "longDescription": "El mismo buzo BRZCO en versión oscura: mismo corte oversize y mismo algodón peinado afelpado que el gris — elegí el tono que más te represente.",
-    "price": 2190,
-    "oldPrice": null,
-    "discount": 0,
-    "currency": "UYU",
-    "stock": 6,
-    "status": "available",
-    "deliveryNote": "Comprá hoy, recibís mañana",
-    "sizes": ["S", "M", "L"],
-    "colors": [
-      { "name": "Oscuro", "hex": "#1F1F1F" }
-    ],
-    "images": [
-      "assets/placeholders/product-03-1.svg",
-      "assets/placeholders/product-03-2.svg"
-    ],
-    "video": null,
-    "featured": false,
-    "new": true,
-    "bestSeller": false,
-    "sold": 0,
-    "tags": ["buzo", "brzco", "oscuro", "oversize"],
-    "specifications": [
-      { "label": "Material", "value": "100% algodón peinado" },
-      { "label": "Corte", "value": "Oversize" },
-      { "label": "Cuidados", "value": "Lavar a máquina, agua fría" }
-    ],
-    "complementaryProducts": [9, 12],
-    "recommendedProducts": [1, 2],
+    "recommendedProducts": [13],
     "reviews": []
   },
   {
@@ -242,7 +162,7 @@
       { "label": "Suela", "value": "Goma con tacos de amortiguación" },
       { "label": "Calce", "value": "Talón abierto, sin cordones" }
     ],
-    "complementaryProducts": [2, 1],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [7, 9],
     "reviews": []
   },
@@ -282,7 +202,7 @@
       { "label": "Suela", "value": "Goma con tacos de amortiguación" },
       { "label": "Calce", "value": "Talón abierto, sin cordones" }
     ],
-    "complementaryProducts": [3, 13],
+    "complementaryProducts": [13, 1],
     "recommendedProducts": [7, 8],
     "reviews": []
   },
@@ -330,7 +250,7 @@
       { "label": "Suela", "value": "Goma con tacos de amortiguación" },
       { "label": "Calce", "value": "Talón abierto, sin cordones" }
     ],
-    "complementaryProducts": [1, 3],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [11, 12],
     "reviews": []
   },
@@ -377,7 +297,7 @@
       { "label": "Suela", "value": "Goma con tacos de amortiguación" },
       { "label": "Calce", "value": "Talón abierto, sin cordones" }
     ],
-    "complementaryProducts": [2, 3],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [10, 12],
     "reviews": []
   },
@@ -425,7 +345,7 @@
       { "label": "Suela", "value": "Goma con tacos de amortiguación" },
       { "label": "Calce", "value": "Talón abierto, sin cordones" }
     ],
-    "complementaryProducts": [13, 3],
+    "complementaryProducts": [13, 1],
     "recommendedProducts": [10, 11],
     "reviews": []
   },
@@ -470,7 +390,7 @@
       { "label": "Cuidados", "value": "Lavar a máquina, agua fría" }
     ],
     "complementaryProducts": [12, 9],
-    "recommendedProducts": [1, 3],
+    "recommendedProducts": [1, 7],
     "reviews": []
   },
   {
