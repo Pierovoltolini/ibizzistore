@@ -6,7 +6,7 @@
    Pages Function) y redirige al cliente a pagar en Mercado Pago.
    ============================================================ */
 
-import { qs, qsa, formatPrice, storage, bus, getDiscount, clearDiscount, getQueryParam, trackPixel, TRANSFER_DISCOUNT_PERCENT } from './utils.js';
+import { qs, qsa, formatPrice, storage, bus, getDiscount, clearDiscount, getQueryParam, trackPixel, TRANSFER_DISCOUNT_PERCENT, whatsappLink } from './utils.js';
 import { getCart, subtotal, clearCart } from './cart.js';
 import { sendOrderEmails } from './email-notifications.js';
 
@@ -199,6 +199,30 @@ function showOrderConfirmed(orderNumber) {
   qs('#order-number').textContent = orderNumber || '-';
 }
 
+/** Arma el mensaje de WhatsApp con el carrito, los datos de envío y el total, para pagos por transferencia. */
+function buildTransferMessage(orderData) {
+  const c = orderData.customer;
+  const itemLines = orderData.items.map(i =>
+    `• ${i.name}${i.size ? ` (talle ${i.size})` : ''}${i.color ? ` - ${i.color}` : ''} x${i.qty} — ${formatPrice(i.price * i.qty)}`
+  ).join('\n');
+
+  const parts = [
+    `¡Hola IBIZZI! Deseo abonar con transferencia mi pedido ${orderData.orderNumber}.`,
+    '',
+    'Productos:',
+    itemLines,
+    '',
+    `Envío: ${orderData.shipping.name}`,
+    `Nombre: ${c.name}`,
+    `Teléfono: ${c.phone}`,
+    `Dirección: ${c.address}, ${c.city}, ${c.state}`
+  ];
+  if (c.notes) parts.push(`Nota: ${c.notes}`);
+  parts.push('', `Total a transferir: ${formatPrice(orderData.total)}`);
+
+  return parts.join('\n');
+}
+
 /** Confirma el pedido: limpia carrito/descuento/nota, trackea la compra y muestra la pantalla de éxito. */
 function confirmOrder(orderData) {
   storage.set('ibizzi_last_order', orderData);
@@ -307,9 +331,13 @@ async function handleSubmit(e) {
       return;
     }
 
-    // Transferencia bancaria / efectivo: se coordina fuera del sitio
-    // (WhatsApp), así que confirmamos el pedido de una.
+    // Transferencia bancaria: confirmamos el pedido y mandamos al cliente a
+    // WhatsApp con el carrito, los datos de envío y el total ya cargados,
+    // para coordinar el pago directo con la tienda.
     confirmOrder(orderData);
+    if (state.payment.id === 'transfer') {
+      window.open(whatsappLink(buildTransferMessage(orderData)), '_blank');
+    }
   } catch (err) {
     console.error(err);
     btn.disabled = false;
