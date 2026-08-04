@@ -45,47 +45,6 @@
     "reviews": []
   },
   {
-    "id": 5,
-    "slug": "cinturon-tommy",
-    "sku": "IBZ-ACC-005",
-    "name": "Cinturón Tommy",
-    "brand": "Tommy",
-    "category": "Accesorios",
-    "subcategory": "Cinturones",
-    "shortDescription": "Cuero con hebilla plateada y pasador con la bandera Tommy.",
-    "longDescription": "Cinturón Tommy de cuero genuino con hebilla de metal cepillado y pasador con la cinta de la bandera Tommy. Ancho clásico de 35 mm, va bien con jean o pantalón de vestir. Disponible en marrón y negro.",
-    "price": 1690,
-    "oldPrice": null,
-    "discount": 0,
-    "currency": "UYU",
-    "stock": 20,
-    "status": "available",
-    "deliveryNote": "Comprá hoy, recibís mañana",
-    "sizes": ["90", "95", "100", "105"],
-    "colors": [
-      { "name": "Marrón", "hex": "#8B5A2B", "image": 0 },
-      { "name": "Negro", "hex": "#101010", "image": 1 }
-    ],
-    "images": [
-      "assets/products/cinturon-tommy-1.jpg",
-      "assets/products/cinturon-tommy-2.jpg"
-    ],
-    "video": null,
-    "featured": false,
-    "new": true,
-    "bestSeller": false,
-    "sold": 27,
-    "tags": ["cinturon", "tommy", "cuero", "marron", "esencial"],
-    "specifications": [
-      { "label": "Material", "value": "Cuero genuino" },
-      { "label": "Hebilla", "value": "Metal cepillado" },
-      { "label": "Ancho", "value": "35 mm" }
-    ],
-    "complementaryProducts": [14, 16, 17],
-    "recommendedProducts": [7, 14],
-    "reviews": []
-  },
-  {
     "id": 7,
     "slug": "nike-mind-retro-negro",
     "sku": "IBZ-ZPT-007",
@@ -430,7 +389,7 @@
       { "label": "Esfera", "value": "Blanca con tres subesferas" },
       { "label": "Malla", "value": "Cuero negro" }
     ],
-    "complementaryProducts": [5],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [15, 16],
     "reviews": []
   },
@@ -471,7 +430,7 @@
       { "label": "Brazalete", "value": "Acero macizo" },
       { "label": "Resistencia", "value": "100 metros" }
     ],
-    "complementaryProducts": [5],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [14, 16],
     "reviews": []
   },
@@ -511,7 +470,7 @@
       { "label": "Esfera", "value": "Azul marino" },
       { "label": "Malla", "value": "Cuero azul" }
     ],
-    "complementaryProducts": [5],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [14, 15],
     "reviews": []
   },
@@ -552,7 +511,7 @@
       { "label": "Esfera", "value": "Negra con textura vertical" },
       { "label": "Brazalete", "value": "Acero integrado" }
     ],
-    "complementaryProducts": [5],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [14, 16],
     "reviews": []
   },
@@ -594,7 +553,7 @@
       { "label": "Esfera", "value": "Oscura con textura horizontal" },
       { "label": "Brazalete", "value": "Acero integrado" }
     ],
-    "complementaryProducts": [5],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [17, 19],
     "reviews": []
   },
@@ -636,7 +595,7 @@
       { "label": "Esfera", "value": "Negra con fecha" },
       { "label": "Brazalete", "value": "Acero" }
     ],
-    "complementaryProducts": [5],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [20, 17],
     "reviews": []
   },
@@ -678,7 +637,7 @@
       { "label": "Esfera", "value": "Negra con fecha" },
       { "label": "Brazalete", "value": "Acero dorado" }
     ],
-    "complementaryProducts": [5],
+    "complementaryProducts": [1, 13],
     "recommendedProducts": [19, 17],
     "reviews": []
   }
