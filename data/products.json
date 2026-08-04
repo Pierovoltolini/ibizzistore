@@ -476,9 +476,9 @@
     "oldPrice": null,
     "discount": 0,
     "currency": "UYU",
-    "stock": 0,
-    "status": "preorder",
-    "preorderBadge": false,
+    "stock": 3,
+    "status": "available",
+    "deliveryNote": "Comprá hoy, recibís mañana",
     "sizes": ["Único"],
     "colors": [
       { "name": "Acero / Cuero negro", "hex": "#1A1A1A" }
@@ -519,6 +519,7 @@
     "currency": "UYU",
     "stock": 4,
     "status": "available",
+    "deliveryNote": "Comprá hoy, recibís mañana",
     "sizes": ["Único"],
     "colors": [
       { "name": "Acero / Esfera negra", "hex": "#2B2E33" }
@@ -557,9 +558,9 @@
     "oldPrice": null,
     "discount": 0,
     "currency": "UYU",
-    "stock": 0,
-    "status": "preorder",
-    "preorderBadge": false,
+    "stock": 3,
+    "status": "available",
+    "deliveryNote": "Comprá hoy, recibís mañana",
     "sizes": ["Único"],
     "colors": [
       { "name": "Acero / Cuero azul", "hex": "#1B2A4A" }
@@ -591,15 +592,15 @@
     "brand": "Tissot",
     "category": "Relojes",
     "subcategory": "PRX",
-    "shortDescription": "PRX de esfera negra y brazalete de acero integrado. En preventa.",
-    "longDescription": "Tissot PRX de esfera negra con textura vertical, caja tonneau de acero e índices aplicados. Brazalete integrado de acero con eslabones satinados y pulidos, cierre desplegable y la estética deportiva-elegante que hizo del PRX un ícono. Modelo en preventa: reservá el tuyo por WhatsApp y lo asegurás al mejor precio de lanzamiento.",
+    "shortDescription": "PRX de esfera negra y brazalete de acero integrado.",
+    "longDescription": "Tissot PRX de esfera negra con textura vertical, caja tonneau de acero e índices aplicados. Brazalete integrado de acero con eslabones satinados y pulidos, cierre desplegable y la estética deportiva-elegante que hizo del PRX un ícono.",
     "price": 3100,
     "oldPrice": null,
     "discount": 0,
     "currency": "UYU",
-    "stock": 0,
-    "status": "preorder",
-    "preorderBadge": false,
+    "stock": 3,
+    "status": "available",
+    "deliveryNote": "Comprá hoy, recibís mañana",
     "sizes": ["Único"],
     "colors": [
       { "name": "Negro / Acero", "hex": "#1A1A1A" }
@@ -613,7 +614,7 @@
     "new": true,
     "bestSeller": false,
     "sold": 0,
-    "tags": ["reloj", "tissot", "prx", "acero", "negro", "preventa"],
+    "tags": ["reloj", "tissot", "prx", "acero", "negro"],
     "specifications": [
       { "label": "Modelo", "value": "PRX" },
       { "label": "Caja", "value": "Acero, forma tonneau" },

@@ -139,6 +139,20 @@
   margin-top: 3px;
 }
 
+.product-card-delivery {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--color-success);
+  margin-top: 3px;
+}
+
+.product-card-installments {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-top: 3px;
+}
+
 .product-card-actions {
   /* auto empuja las acciones al fondo (alinea los botones entre cards);
      el padding garantiza un mínimo de aire sobre el botón. */
@@ -174,6 +188,11 @@
    que comparten los demás badges de la card. */
 .product-card-badges .label-preorder {
   background-color: var(--color-warning);
+  color: var(--color-text-inverse);
+  backdrop-filter: none;
+}
+.product-card-badges .label-gift {
+  background-color: var(--color-accent);
   color: var(--color-text-inverse);
   backdrop-filter: none;
 }

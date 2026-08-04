@@ -95,6 +95,7 @@ function render(p) {
   const priceEl = qs('#pp-price');
   const oldEl = qs('#pp-old-price');
   const discEl = qs('#pp-discount');
+  const installmentsEl = qs('#pp-installments');
   const transferEl = qs('#pp-transfer');
   if (isPreorder && p.price == null) {
     // Preventa sin precio confirmado: mostramos el gancho en vez del número.
@@ -102,6 +103,7 @@ function render(p) {
     priceEl.classList.add('pp-price-preorder');
     oldEl.hidden = true;
     discEl.hidden = true;
+    installmentsEl.hidden = true;
     transferEl.hidden = true;
   } else {
     priceEl.textContent = formatPrice(p.price, p.currency);
@@ -114,6 +116,8 @@ function render(p) {
       oldEl.hidden = true;
       discEl.hidden = true;
     }
+    installmentsEl.textContent = '💳 Hasta 12 cuotas sin interés';
+    installmentsEl.hidden = false;
     transferEl.textContent = `🏦 Transferencia ${formatPrice(transferPrice(p.price), p.currency)}`;
     transferEl.hidden = false;
   }

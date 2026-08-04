@@ -18,6 +18,18 @@ function transferPriceHTML(product) {
   return `<div class="product-card-transfer">🏦 Transferencia ${formatPrice(transferPrice(product.price), product.currency)}</div>`;
 }
 
+/** Línea chica con el tiempo de entrega ("Comprá hoy, recibís mañana" / "Entrega en 10 días"). */
+function deliveryNoteHTML(product) {
+  if (!product.deliveryNote) return '';
+  return `<div class="product-card-delivery">🚚 ${product.deliveryNote}</div>`;
+}
+
+/** Línea chica con las cuotas, al lado del precio. */
+function installmentsHTML(product) {
+  if (product.price == null) return '';
+  return `<div class="product-card-installments">💳 Hasta 12 cuotas sin interés</div>`;
+}
+
 /* Preventa que además se anuncia como "Próximamente": badge amarillo, cartel
    sobre la foto y sección propia en la home. Un producto en preventa con
    "preorderBadge": false se muestra como uno más de su categoría —sin ningún
@@ -84,6 +96,7 @@ export function productCardHTML(product) {
 
         <div class="product-card-badges">
           ${comingSoon ? '<span class="label label-preorder">Próximamente</span>' : ''}
+          ${comingSoon ? '<span class="label label-gift">🎁 10% Obsequio</span>' : ''}
           ${!comingSoon && product.new ? '<span class="label label-new">Nuevo</span>' : ''}
           ${discount > 0 ? `<span class="label label-sale">-${discount}%</span>` : ''}
           ${outOfStock ? '<span class="label label-sold">Agotado</span>' : ''}
@@ -109,12 +122,16 @@ export function productCardHTML(product) {
                  ? `<span class="product-card-price">${formatPrice(product.price, product.currency)}</span>${comingSoon ? '<span class="product-card-preorder-tag">próximamente</span>' : ''}`
                  : `<span class="product-card-preorder-note">Reservá al mejor precio</span>`}
              </div>
-             ${transferPriceHTML(product)}`
+             ${installmentsHTML(product)}
+             ${transferPriceHTML(product)}
+             ${deliveryNoteHTML(product)}`
           : `<div class="product-card-prices">
                ${product.oldPrice ? `<span class="product-card-old">${formatPrice(product.oldPrice, product.currency)}</span>` : ''}
                <span class="product-card-price">${formatPrice(product.price, product.currency)}</span>
              </div>
-             ${transferPriceHTML(product)}`}
+             ${installmentsHTML(product)}
+             ${transferPriceHTML(product)}
+             ${deliveryNoteHTML(product)}`}
         <div class="product-card-actions">
           <a href="product.html?slug=${product.slug}" class="btn btn-secondary btn-sm btn-block">Ver producto</a>
           ${isPreorder
