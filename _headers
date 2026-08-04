@@ -1,0 +1,8 @@
+/css/*
+  Cache-Control: no-cache
+
+/js/*
+  Cache-Control: no-cache
+
+/data/*
+  Cache-Control: no-cache

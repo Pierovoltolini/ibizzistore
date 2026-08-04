@@ -34,7 +34,7 @@ export function calcDiscount(price, oldPrice) {
 
 /** % de descuento pagando por transferencia bancaria. Un solo lugar para
  *  no desincronizar el cartelito del precio con el descuento real del checkout. */
-export const TRANSFER_DISCOUNT_PERCENT = 10;
+export const TRANSFER_DISCOUNT_PERCENT = 8;
 
 /** Precio final pagando por transferencia bancaria. */
 export function transferPrice(price) {
