@@ -96,8 +96,8 @@ export function productCardHTML(product) {
 
         <div class="product-card-badges">
           ${comingSoon ? '<span class="label label-preorder">Próximamente</span>' : ''}
-          ${comingSoon ? '<span class="label label-gift">🎁 10% Obsequio</span>' : ''}
-          ${!comingSoon && product.new ? '<span class="label label-new">Nuevo</span>' : ''}
+          ${product.madeToOrder ? '<span class="label label-gift">🎁 10% Obsequio</span>' : ''}
+          ${!comingSoon && !product.madeToOrder && product.new ? '<span class="label label-new">Nuevo</span>' : ''}
           ${discount > 0 ? `<span class="label label-sale">-${discount}%</span>` : ''}
           ${outOfStock ? '<span class="label label-sold">Agotado</span>' : ''}
         </div>
@@ -258,6 +258,10 @@ export function filterNew(products) {
 export function filterPreorder(products) {
   return products.filter(isComingSoon);
 }
+/** Relojes hechos a pedido (10 días de entrega) — sección "Más relojes". */
+export function filterMadeToOrder(products) {
+  return products.filter(p => p.madeToOrder);
+}
 export function filterSale(products) {
   return products.filter(p => (p.discount && p.discount > 0) || (p.oldPrice && p.oldPrice > p.price));
 }
@@ -271,16 +275,15 @@ export async function renderHomeSections() {
     // Destacados
     renderGrid(qs('#home-featured'), filterFeatured(products).slice(0, 8));
 
-    // Relojes (los que se anuncian como "Próximamente" van a su propia
-    // sección de abajo, no acá)
+    // Relojes en stock (los hechos a pedido van a "Más relojes", abajo)
     renderGrid(qs('#home-watches'),
-      filterByCategory(products, 'Relojes').filter(p => !isComingSoon(p)));
+      filterByCategory(products, 'Relojes').filter(p => !isComingSoon(p) && !p.madeToOrder));
 
-    // Próximamente / Preventa — la sección se oculta sola si no hay ninguno
-    const preorder = filterPreorder(products);
+    // Más relojes (hechos a pedido, 10 días) — se oculta sola si no hay ninguno
+    const madeToOrder = filterMadeToOrder(products);
     const preorderSection = qs('#home-preorder-section');
-    if (preorderSection) preorderSection.hidden = preorder.length === 0;
-    renderGrid(qs('#home-preorder'), preorder);
+    if (preorderSection) preorderSection.hidden = madeToOrder.length === 0;
+    renderGrid(qs('#home-preorder'), madeToOrder);
 
     // Zuecos Nike Mind
     renderGrid(qs('#home-sneakers'), filterByCategory(products, 'Zuecos Nike Mind'));
