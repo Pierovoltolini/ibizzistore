@@ -143,21 +143,14 @@
   font-weight: var(--fw-bold);
 }
 .transfer-badge {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: var(--fw-bold);
-  color: var(--color-warning);
-  border: 1px solid color-mix(in srgb, var(--color-warning) 55%, transparent);
-  padding: 1px 5px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  vertical-align: middle;
+  font: inherit;
+  color: inherit;
 }
 
 .product-card-delivery {
   font-family: var(--font-sans);
   font-size: 12px;
-  color: var(--color-text-secondary);
+  color: var(--color-success);
   margin-top: 3px;
 }
 .product-card-delivery.is-made-to-order {
