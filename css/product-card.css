@@ -149,12 +149,14 @@
   color: var(--color-success);
   margin-top: 3px;
 }
+.product-card-delivery.is-made-to-order {
+  color: var(--color-error);
+}
 
 .product-card-installments {
   font-family: var(--font-sans);
   font-size: 12px;
   color: var(--color-text-secondary);
-  margin-top: 3px;
 }
 
 .product-card-actions {

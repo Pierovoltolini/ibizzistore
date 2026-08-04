@@ -183,6 +183,7 @@
 .pp-prices {
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
   gap: var(--space-3);
   margin-bottom: var(--space-2);
 }
@@ -207,7 +208,6 @@
   font-family: var(--font-sans);
   font-size: var(--fs-sm);
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-2);
 }
 .pp-transfer {
   font-family: var(--font-sans);

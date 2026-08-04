@@ -18,16 +18,19 @@ function transferPriceHTML(product) {
   return `<div class="product-card-transfer anim-fade-up anim-delay-1">🏦 Transferencia <strong>${formatPrice(transferPrice(product.price), product.currency)}</strong></div>`;
 }
 
-/** Línea chica con el tiempo de entrega ("Comprá hoy, recibís mañana" / "Entrega en 10 días"). */
+/** Línea chica con el tiempo de entrega ("Comprá hoy, recibís mañana" / "Entrega en 10 días").
+ *  Verde para lo que hay en stock, rojo para lo hecho a pedido — para que
+ *  se note a simple vista la diferencia entre ambos. */
 function deliveryNoteHTML(product) {
   if (!product.deliveryNote) return '';
-  return `<div class="product-card-delivery">🚚 ${product.deliveryNote}</div>`;
+  const cls = product.madeToOrder ? 'product-card-delivery is-made-to-order' : 'product-card-delivery';
+  return `<div class="${cls}">🚚 ${product.deliveryNote}</div>`;
 }
 
-/** Línea chica con las cuotas, al lado del precio. */
+/** Cuotas, en la misma línea que el precio (span, no div). */
 function installmentsHTML(product) {
   if (product.price == null) return '';
-  return `<div class="product-card-installments">💳 Hasta 12 cuotas sin interés</div>`;
+  return `<span class="product-card-installments">💳 Hasta 12 cuotas sin interés</span>`;
 }
 
 /* Preventa que además se anuncia como "Próximamente": badge amarillo, cartel
@@ -121,15 +124,15 @@ export function productCardHTML(product) {
                ${hasPrice
                  ? `<span class="product-card-price">${formatPrice(product.price, product.currency)}</span>${comingSoon ? '<span class="product-card-preorder-tag">próximamente</span>' : ''}`
                  : `<span class="product-card-preorder-note">Reservá al mejor precio</span>`}
+               ${installmentsHTML(product)}
              </div>
-             ${installmentsHTML(product)}
              ${transferPriceHTML(product)}
              ${deliveryNoteHTML(product)}`
           : `<div class="product-card-prices">
                ${product.oldPrice ? `<span class="product-card-old">${formatPrice(product.oldPrice, product.currency)}</span>` : ''}
                <span class="product-card-price">${formatPrice(product.price, product.currency)}</span>
+               ${installmentsHTML(product)}
              </div>
-             ${installmentsHTML(product)}
              ${transferPriceHTML(product)}
              ${deliveryNoteHTML(product)}`}
         <div class="product-card-actions">

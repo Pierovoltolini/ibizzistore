@@ -423,6 +423,3 @@
       color-mix(in srgb, var(--color-warning) 8%, transparent) 0%,
       transparent 60%);
 }
-.preorder-eyebrow {
-  color: var(--color-warning);
-}
