@@ -58,12 +58,18 @@
     "oldPrice": null,
     "discount": 0,
     "currency": "UYU",
-    "stock": 8,
+    "stock": 2,
     "status": "available",
     "deliveryNote": "Comprá hoy, recibís mañana",
-    "sizes": ["39", "40", "41", "42", "43", "44"],
+    "sizes": ["41/42", "42/43"],
+    "sizeStock": { "41/42": 1, "42/43": 1 },
     "colors": [
       { "name": "Negro", "hex": "#101010" }
+    ],
+    "colorVariants": [
+      { "name": "Negro", "hex": "#101010", "slug": "nike-mind-retro-negro" },
+      { "name": "Crema", "hex": "#EDE0C8", "slug": "nike-mind-retro-crema" },
+      { "name": "Blanco", "hex": "#F5F3EE", "slug": "nike-mind-retro-blanco" }
     ],
     "images": [
       "assets/products/nike-mind-retro-negro-1.jpg"
@@ -98,12 +104,18 @@
     "oldPrice": null,
     "discount": 0,
     "currency": "UYU",
-    "stock": 8,
+    "stock": 5,
     "status": "available",
     "deliveryNote": "Comprá hoy, recibís mañana",
-    "sizes": ["39", "40", "41", "42", "43", "44"],
+    "sizes": ["38/39", "41/42", "42/43"],
+    "sizeStock": { "38/39": 2, "41/42": 2, "42/43": 1 },
     "colors": [
       { "name": "Crema", "hex": "#EDE0C8" }
+    ],
+    "colorVariants": [
+      { "name": "Negro", "hex": "#101010", "slug": "nike-mind-retro-negro" },
+      { "name": "Crema", "hex": "#EDE0C8", "slug": "nike-mind-retro-crema" },
+      { "name": "Blanco", "hex": "#F5F3EE", "slug": "nike-mind-retro-blanco" }
     ],
     "images": [
       "assets/products/nike-mind-retro-crema-2.jpg",
@@ -139,12 +151,18 @@
     "oldPrice": null,
     "discount": 0,
     "currency": "UYU",
-    "stock": 8,
+    "stock": 2,
     "status": "available",
     "deliveryNote": "Comprá hoy, recibís mañana",
-    "sizes": ["39", "40", "41", "42", "43", "44"],
+    "sizes": ["41/42", "42/43"],
+    "sizeStock": { "41/42": 1, "42/43": 1 },
     "colors": [
       { "name": "Blanco", "hex": "#F5F3EE" }
+    ],
+    "colorVariants": [
+      { "name": "Negro", "hex": "#101010", "slug": "nike-mind-retro-negro" },
+      { "name": "Crema", "hex": "#EDE0C8", "slug": "nike-mind-retro-crema" },
+      { "name": "Blanco", "hex": "#F5F3EE", "slug": "nike-mind-retro-blanco" }
     ],
     "images": [
       "assets/products/nike-mind-retro-blanco-1.jpg"
