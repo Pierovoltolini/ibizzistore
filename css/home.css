@@ -255,6 +255,23 @@
   align-self: flex-start;
 }
 
+/* Categoría todavía sin productos: cartel vertical tipo "Próximamente". */
+.category-tile-vertical {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 1;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  color: var(--color-text-primary);
+  background-color: rgba(20,20,20,0.7);
+  padding: var(--space-3) var(--space-1);
+}
+
 /* ---------- PRODUCT GRID ---------- */
 
 .products-grid {
