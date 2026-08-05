@@ -8,7 +8,7 @@
 .announcement {
   position: relative;
   z-index: calc(var(--z-header) + 1);
-  background-color: var(--color-bg-deep);
+  background-color: var(--color-brand-navy);
   border-bottom: 1px solid var(--color-border-soft);
   overflow: hidden;
 }
@@ -48,7 +48,7 @@
   position: sticky;
   top: 0;
   z-index: var(--z-header);
-  background-color: rgba(20, 20, 20, 0.85);
+  background-color: rgba(27, 35, 64, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border-soft);

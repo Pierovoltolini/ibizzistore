@@ -29,12 +29,13 @@
 .hero-media::after {
   content: '';
   position: absolute; inset: 0;
-  /* Solo un fundido inferior para empalmar la foto con el fondo del texto */
+  /* Solo un fundido inferior para empalmar la foto con el fondo del texto.
+     Tinte azul marino (marca) en vez de gris neutro. */
   background: linear-gradient(180deg,
-    rgba(20,20,20,0.15) 0%,
-    rgba(20,20,20,0) 40%,
-    rgba(20,20,20,0.45) 86%,
-    rgba(26,26,26,0.92) 100%);
+    rgba(16,22,42,0.15) 0%,
+    rgba(16,22,42,0) 40%,
+    rgba(16,22,42,0.45) 86%,
+    rgba(27,35,64,0.92) 100%);
 }
 
 .hero-content {
@@ -65,9 +66,9 @@
   }
   .hero-media::after {
     background: linear-gradient(180deg,
-      rgba(20,20,20,0.35) 0%,
-      rgba(20,20,20,0.20) 40%,
-      rgba(20,20,20,0.85) 100%);
+      rgba(16,22,42,0.35) 0%,
+      rgba(16,22,42,0.20) 40%,
+      rgba(16,22,42,0.85) 100%);
   }
   .hero-content {
     padding-block: var(--space-8) var(--space-7);
@@ -293,7 +294,8 @@
 .editorial-banner-media::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(20,20,20,0.85) 0%, rgba(20,20,20,0.3) 100%);
+  /* Tinte azul marino (marca), en vez de gris neutro. */
+  background: linear-gradient(90deg, rgba(16,22,42,0.88) 0%, rgba(16,22,42,0.35) 100%);
 }
 .editorial-banner-content {
   position: relative; z-index: 1;

@@ -36,10 +36,15 @@
   /* Gradiente para hero (más contraste editorial) */
   --gradient-hero: linear-gradient(
     180deg,
-    #141414 0%,
-    #1E1E1E 60%,
-    #242424 100%
+    #10162A 0%,
+    #1B2340 60%,
+    #232C50 100%
   );
+
+  /* Azul marino de marca (mismo tono que el logo de Instagram @ibizzi.uy),
+     usado en los overlays de hero y banner editorial para que esas
+     secciones se identifiquen con la marca. */
+  --color-brand-navy: #1B2340;
 
   /* ---------- Tipografía ---------- */
   --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
