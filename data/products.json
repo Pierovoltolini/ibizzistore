@@ -658,5 +658,85 @@
     "complementaryProducts": [1, 13],
     "recommendedProducts": [19, 17],
     "reviews": []
+  },
+  {
+    "id": 21,
+    "slug": "reloj-armani-cronografo-negro",
+    "sku": "IBZ-RLJ-021",
+    "name": "Emporio Armani Cronógrafo Negro",
+    "brand": "Emporio Armani",
+    "category": "Relojes",
+    "subcategory": "Cronógrafos",
+    "shortDescription": "Cronógrafo de esfera negra con malla de cuero marrón.",
+    "longDescription": "Emporio Armani cronógrafo de esfera negra con tres subesferas, escala taquimétrica y ventana de fecha. Caja de acero cepillado con pulsadores laterales, logo del águila aplicado sobre el dial y malla de cuero marrón con costura contrastante en crudo. El contraste del cuero marrón con la esfera negra lo hace más cálido que el de esfera blanca.",
+    "price": 2990,
+    "oldPrice": null,
+    "discount": 0,
+    "currency": "UYU",
+    "stock": 3,
+    "status": "available",
+    "deliveryNote": "Comprá hoy, recibís mañana",
+    "sizes": ["Único"],
+    "colors": [
+      { "name": "Acero / Cuero marrón", "hex": "#6B4426" }
+    ],
+    "images": [
+      "assets/products/reloj-armani-cronografo-negro-1.jpg"
+    ],
+    "video": null,
+    "featured": true,
+    "new": true,
+    "bestSeller": false,
+    "sold": 0,
+    "tags": ["reloj", "armani", "cronografo", "cuero", "marron", "negro"],
+    "specifications": [
+      { "label": "Función", "value": "Cronógrafo con fecha" },
+      { "label": "Caja", "value": "Acero cepillado" },
+      { "label": "Esfera", "value": "Negra con tres subesferas" },
+      { "label": "Malla", "value": "Cuero marrón" }
+    ],
+    "complementaryProducts": [1, 13],
+    "recommendedProducts": [14, 15],
+    "reviews": []
+  },
+  {
+    "id": 22,
+    "slug": "reloj-tommy-hilfiger-dorado",
+    "sku": "IBZ-RLJ-022",
+    "name": "Tommy Hilfiger Dorado",
+    "brand": "Tommy Hilfiger",
+    "category": "Relojes",
+    "subcategory": "Clásicos",
+    "shortDescription": "Esfera champán con números arábigos, caja dorada y malla de cuero negro.",
+    "longDescription": "Tommy Hilfiger de esfera champán texturada con números arábigos en relieve, ventana de fecha y la bandera de la marca sobre el dial. Caja dorada de perfil fino, corona estriada y malla de cuero negro. Movimiento de cuarzo. El contraste del dorado con el cuero negro le da un aire clásico, de reloj de vestir.",
+    "price": 2890,
+    "oldPrice": null,
+    "discount": 0,
+    "currency": "UYU",
+    "stock": 3,
+    "status": "available",
+    "deliveryNote": "Comprá hoy, recibís mañana",
+    "sizes": ["Único"],
+    "colors": [
+      { "name": "Dorado / Cuero negro", "hex": "#C9A227" }
+    ],
+    "images": [
+      "assets/products/reloj-tommy-hilfiger-dorado-1.jpg"
+    ],
+    "video": null,
+    "featured": true,
+    "new": true,
+    "bestSeller": false,
+    "sold": 0,
+    "tags": ["reloj", "tommy hilfiger", "dorado", "cuero", "clasico"],
+    "specifications": [
+      { "label": "Movimiento", "value": "Cuarzo" },
+      { "label": "Caja", "value": "Dorada" },
+      { "label": "Esfera", "value": "Champán con números arábigos" },
+      { "label": "Malla", "value": "Cuero negro" }
+    ],
+    "complementaryProducts": [1, 13],
+    "recommendedProducts": [16, 20],
+    "reviews": []
   }
 ]
