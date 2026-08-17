@@ -454,24 +454,25 @@
   },
   {
     "id": 16,
-    "slug": "reloj-tommy-hilfiger-azul",
+    "slug": "reloj-tommy-hilfiger-negro",
     "sku": "IBZ-RLJ-016",
-    "name": "Tommy Hilfiger Azul",
+    "name": "Tommy Hilfiger Negro",
     "brand": "Tommy Hilfiger",
     "category": "Relojes",
     "subcategory": "Clásicos",
-    "shortDescription": "Esfera azul marino, caja de acero y malla de cuero azul.",
-    "longDescription": "Tommy Hilfiger de esfera azul marino con acabado soleado, índices de puntos, segundero pequeño con la bandera de la marca y ventana de fecha. Caja de acero pulido de perfil fino y malla de cuero azul. Limpio y sobrio: el más discreto de los tres.",
+    "shortDescription": "Esfera negra, caja de acero y malla de cuero negro.",
+    "longDescription": "Tommy Hilfiger de esfera negra con acabado soleado, índices de puntos, segundero pequeño con la bandera de la marca y ventana de fecha. Caja de acero pulido de perfil fino y malla de cuero negro. Limpio y sobrio: el más discreto de los tres.",
     "price": 2890,
     "oldPrice": null,
     "discount": 0,
     "currency": "UYU",
-    "stock": 3,
+    "stock": 99,
     "status": "available",
-    "deliveryNote": "Comprá hoy, recibís mañana",
+    "madeToOrder": true,
+    "deliveryNote": "Entrega en 10 días",
     "sizes": ["Único"],
     "colors": [
-      { "name": "Acero / Cuero azul", "hex": "#1B2A4A" }
+      { "name": "Acero / Cuero negro", "hex": "#1A1A1A" }
     ],
     "images": [
       "assets/products/reloj-tommy-hilfiger-azul-1.jpg"
@@ -481,12 +482,12 @@
     "new": true,
     "bestSeller": false,
     "sold": 0,
-    "tags": ["reloj", "tommy hilfiger", "azul", "cuero", "clasico"],
+    "tags": ["reloj", "tommy hilfiger", "negro", "cuero", "clasico"],
     "specifications": [
       { "label": "Función", "value": "Segundero pequeño con fecha" },
       { "label": "Caja", "value": "Acero pulido" },
-      { "label": "Esfera", "value": "Azul marino" },
-      { "label": "Malla", "value": "Cuero azul" }
+      { "label": "Esfera", "value": "Negra" },
+      { "label": "Malla", "value": "Cuero negro" }
     ],
     "complementaryProducts": [1, 13],
     "recommendedProducts": [14, 15],
