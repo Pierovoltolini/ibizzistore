@@ -107,50 +107,42 @@
       <form id="checkout-form" novalidate>
 
         <section class="checkout-section">
-          <h2 class="checkout-section-title">Contacto</h2>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-              <span class="error-msg">Ingresá un email válido.</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="checkout-section">
-          <h2 class="checkout-section-title">Datos personales</h2>
+          <h2 class="checkout-section-title">Datos de envío</h2>
           <div class="form-grid two">
             <div class="form-field">
               <label for="name">Nombre completo</label>
-              <input type="text" id="name" name="name" required>
+              <input type="text" id="name" name="name" autocomplete="name" required>
               <span class="error-msg">Requerido.</span>
             </div>
             <div class="form-field">
               <label for="phone">Teléfono</label>
-              <input type="tel" id="phone" name="phone" required>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
               <span class="error-msg">Requerido.</span>
             </div>
           </div>
-        </section>
-
-        <section class="checkout-section">
-          <h2 class="checkout-section-title">Dirección de envío</h2>
-          <div class="form-grid">
+          <div class="form-grid" style="margin-top: 1rem;">
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="error-msg">Ingresá un email válido.</span>
+            </div>
+          </div>
+          <div class="form-grid" style="margin-top: 1rem;">
             <div class="form-field">
               <label for="address">Dirección</label>
-              <input type="text" id="address" name="address" placeholder="Calle y número, apto." required>
+              <input type="text" id="address" name="address" placeholder="Calle y número, apto." autocomplete="street-address" required>
               <span class="error-msg">Requerido.</span>
             </div>
           </div>
           <div class="form-grid two" style="margin-top: 1rem;">
             <div class="form-field">
               <label for="city">Ciudad</label>
-              <input type="text" id="city" name="city" required>
+              <input type="text" id="city" name="city" autocomplete="address-level2" required>
               <span class="error-msg">Requerido.</span>
             </div>
             <div class="form-field">
               <label for="state">Departamento</label>
-              <select id="state" name="state" required>
+              <select id="state" name="state" autocomplete="address-level1" required>
                 <option value="">Seleccionar…</option>
                 <option>Artigas</option><option>Canelones</option><option>Cerro Largo</option>
                 <option>Colonia</option><option>Durazno</option><option>Flores</option>
@@ -163,14 +155,10 @@
               <span class="error-msg">Requerido.</span>
             </div>
           </div>
-          <div class="form-grid two" style="margin-top: 1rem;">
-            <div class="form-field">
-              <label for="zip">Código postal</label>
-              <input type="text" id="zip" name="zip">
-            </div>
+          <div class="form-grid" style="margin-top: 1rem;">
             <div class="form-field">
               <label for="notes">Notas adicionales</label>
-              <input type="text" id="notes" name="notes" placeholder="Opcional">
+              <input type="text" id="notes" name="notes" placeholder="Opcional — ej: agencia DAC de preferencia">
             </div>
           </div>
         </section>
