@@ -1,6 +1,6 @@
 /* ============================================================
    IBIZZI · engagement-cta.js
-   Aviso no invasivo en las páginas de listado: si pasan ~20s y el
+   Aviso no invasivo en las páginas de listado: si pasan ~10s y el
    visitante todavía no agregó nada al carrito, aparece un toast
    recordándole los beneficios (cuotas, transferencia) y lo invita a
    volver a la grilla. Se muestra una sola vez por sesión, y se
@@ -11,7 +11,7 @@ import { bus } from './utils.js';
 import { getCart } from './cart.js';
 
 const SESSION_KEY = 'ibizzi_engagement_shown';
-const DELAY_MS = 20000;
+const DELAY_MS = 10000;
 const AUTO_CLOSE_MS = 12000;
 
 export function initEngagementCTA() {
