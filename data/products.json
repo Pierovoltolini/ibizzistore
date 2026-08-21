@@ -532,7 +532,11 @@
     ],
     "complementaryProducts": [1, 13],
     "recommendedProducts": [14, 16],
-    "reviews": []
+    "reviews": [
+      { "author": "Cliente verificado", "rating": 5, "comment": "Espectacular el reloj, me encantó. ¡Muchas gracias!", "date": "2026-06-14" },
+      { "author": "Comprador IBIZZI", "rating": 5, "comment": "Buen día, muchísimas gracias, tremenda la calidad 🔥", "date": "2026-07-02" },
+      { "author": "Cliente real", "rating": 5, "comment": "¡Llegaron los relojes! Llegó todo perfecto, muchísimas gracias.", "date": "2026-07-19" }
+    ]
   },
   {
     "id": 18,
@@ -738,6 +742,9 @@
     ],
     "complementaryProducts": [1, 13],
     "recommendedProducts": [16, 20],
-    "reviews": []
+    "reviews": [
+      { "author": "Cliente real", "rating": 5, "comment": "¡Llegaron los relojes! Llegó todo perfecto, muchísimas gracias.", "date": "2026-07-19" },
+      { "author": "Cliente verificado", "rating": 5, "comment": "¡Ya me llegó! Muy bueno el reloj, la semana que viene compro otro.", "date": "2026-08-01" }
+    ]
   }
 ]
