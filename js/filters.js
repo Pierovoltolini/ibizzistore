@@ -5,7 +5,6 @@
 
 import { qs, qsa, lockScroll, unlockScroll, whatsappLink } from './utils.js';
 import { loadProducts, renderGrid } from './products.js';
-import { initEngagementCTA } from './engagement-cta.js';
 
 const state = {
   category: null,
@@ -201,6 +200,4 @@ export async function initProductsPage() {
   wireFilters(products);
   wireDrawer();
   renderResults(products);
-
-  initEngagementCTA();
 }

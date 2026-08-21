@@ -10,6 +10,7 @@ import { renderShell } from './shell.js';
 import { openCartDrawer, initCartDrawer } from './cart-drawer.js';
 import { getItemCount } from './cart.js';
 import { getFavorites } from './favorites.js';
+import { initEngagementCTA } from './engagement-cta.js';
 
 /* ---------- Overlay compartido ---------- */
 
@@ -182,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   markActiveLink();
   updateBadges();
+  initEngagementCTA();
 
   // Buscador (carga diferida — solo si el overlay se abre)
   import('./search.js').then(mod => mod.initSearch()).catch(() => {});

@@ -366,61 +366,92 @@ body.is-locked {
   .products-guide > * { overflow: visible; }
 }
 
-/* ---------- Aviso de engagement (toast con temporizador) ---------- */
+/* ---------- Aviso de engagement (modal centrado, una vez por usuario) ---------- */
 
-.engagement-toast {
+.engagement-overlay {
   position: fixed;
-  left: 50%;
-  /* Despeja el botón flotante de Instagram, que vive en la misma esquina. */
-  bottom: calc(var(--space-4) + 68px + env(safe-area-inset-bottom, 0px));
-  transform: translateX(-50%) translateY(20px);
-  z-index: var(--z-toast);
-  width: calc(100% - var(--space-8));
-  max-width: 400px;
-  padding: var(--space-4);
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-lg);
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  background-color: rgba(10, 10, 12, 0.75);
+  backdrop-filter: blur(3px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+  transition: opacity var(--dur-slow) var(--ease-out);
 }
-.engagement-toast.is-visible {
+.engagement-overlay.is-visible {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
 }
-.engagement-toast-close {
+
+.engagement-modal {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: var(--space-7) var(--space-6) var(--space-6);
+  text-align: center;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.96) translateY(8px);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.engagement-overlay.is-visible .engagement-modal {
+  transform: scale(1) translateY(0);
+}
+/* Filete superior en el azul marino de marca: el toque "lujo". */
+.engagement-modal::before {
+  content: '';
   position: absolute;
-  top: var(--space-2);
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 2px;
+  background-color: var(--color-brand-navy);
+}
+
+.engagement-modal-close {
+  position: absolute;
+  top: var(--space-3);
   right: var(--space-3);
-  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
   line-height: 1;
   color: var(--color-text-muted);
+  transition: var(--transition-color);
 }
-.engagement-toast-close:hover {
+.engagement-modal-close:hover {
   color: var(--color-text-primary);
 }
-.engagement-toast-text {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  color: var(--color-text-primary);
+
+.engagement-modal-eyebrow {
   margin-bottom: var(--space-3);
-  padding-right: var(--space-4);
 }
-.engagement-toast-cta {
-  width: auto;
-  padding-inline: var(--space-5);
+
+.engagement-modal-title {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-2xl);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
 }
-@media (min-width: 768px) {
-  .engagement-toast {
-    left: auto;
-    right: var(--space-6, 2rem);
-    bottom: calc(var(--space-6, 2rem) + 68px);
-    transform: translateY(20px);
-  }
-  .engagement-toast.is-visible {
-    transform: translateY(0);
-  }
+
+.engagement-modal-perks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+.engagement-modal-cta {
+  width: 100%;
 }
 

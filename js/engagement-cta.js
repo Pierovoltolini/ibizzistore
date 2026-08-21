@@ -1,25 +1,26 @@
 /* ============================================================
    IBIZZI · engagement-cta.js
-   Aviso no invasivo en las páginas de listado: si pasan ~10s y el
-   visitante todavía no agregó nada al carrito, aparece un toast
-   recordándole los beneficios (cuotas, transferencia) y lo invita a
-   volver a la grilla. Se muestra una sola vez por sesión, y se
-   cancela solo si ya agregó algo antes de que se cumpla el tiempo.
+   Aviso centrado, en cualquier página del sitio: si pasan ~10s y el
+   visitante todavía no agregó nada al carrito, aparece un cartel en
+   el medio de la pantalla recordándole los beneficios. Se guarda en
+   localStorage — se muestra una sola vez por usuario, nunca más
+   aunque vuelva otro día. Se cierra con la X, tocando afuera o con
+   Escape. Si agrega algo al carrito antes de que se cumpla el
+   tiempo, se cancela sin marcarlo como visto.
    ============================================================ */
 
-import { bus } from './utils.js';
+import { bus, lockScroll, unlockScroll } from './utils.js';
 import { getCart } from './cart.js';
 
-const SESSION_KEY = 'ibizzi_engagement_shown';
+const STORAGE_KEY = 'ibizzi_engagement_shown';
 const DELAY_MS = 10000;
-const AUTO_CLOSE_MS = 12000;
 
 export function initEngagementCTA() {
-  if (sessionStorage.getItem(SESSION_KEY)) return;
+  if (localStorage.getItem(STORAGE_KEY)) return;
   if (getCart().length > 0) return;
 
   const timer = setTimeout(() => {
-    if (getCart().length === 0) showToast();
+    if (getCart().length === 0) showModal();
   }, DELAY_MS);
 
   const unsub = bus.on('cart:updated', ({ cart }) => {
@@ -30,33 +31,39 @@ export function initEngagementCTA() {
   });
 }
 
-function showToast() {
-  sessionStorage.setItem(SESSION_KEY, '1');
+function showModal() {
+  localStorage.setItem(STORAGE_KEY, '1');
 
-  const toast = document.createElement('div');
-  toast.className = 'engagement-toast';
-  toast.innerHTML = `
-    <button class="engagement-toast-close" type="button" aria-label="Cerrar">×</button>
-    <p class="engagement-toast-text">¿Ya viste algo que te gustó? 💳 Hasta 12 cuotas sin interés y 🏦 10% off por transferencia.</p>
-    <button class="btn btn-primary btn-sm engagement-toast-cta" type="button">Ver productos</button>
+  const overlay = document.createElement('div');
+  overlay.className = 'engagement-overlay';
+  overlay.innerHTML = `
+    <div class="engagement-modal" role="dialog" aria-modal="true" aria-label="Beneficios IBIZZI">
+      <button class="engagement-modal-close" type="button" aria-label="Cerrar">×</button>
+      <span class="section-eyebrow engagement-modal-eyebrow">IBIZZI</span>
+      <h2 class="engagement-modal-title">La elegancia está<br>en los detalles</h2>
+      <div class="engagement-modal-perks">
+        <span>💳 Hasta 12 cuotas sin interés</span>
+        <span>🏦 10% off pagando por transferencia</span>
+        <span>🚚 Envíos a todo Uruguay</span>
+      </div>
+      <a href="products.html" class="btn btn-primary engagement-modal-cta">Explorar colección</a>
+    </div>
   `;
-  document.body.appendChild(toast);
+  document.body.appendChild(overlay);
+  lockScroll();
 
-  requestAnimationFrame(() => toast.classList.add('is-visible'));
+  requestAnimationFrame(() => overlay.classList.add('is-visible'));
 
   const close = () => {
-    toast.classList.remove('is-visible');
-    setTimeout(() => toast.remove(), 400);
+    overlay.classList.remove('is-visible');
+    unlockScroll();
+    document.removeEventListener('keydown', onKey);
+    setTimeout(() => overlay.remove(), 300);
   };
-  const autoClose = setTimeout(close, AUTO_CLOSE_MS);
+  const onKey = (e) => { if (e.key === 'Escape') close(); };
 
-  toast.querySelector('.engagement-toast-close').addEventListener('click', () => {
-    clearTimeout(autoClose);
-    close();
-  });
-  toast.querySelector('.engagement-toast-cta').addEventListener('click', () => {
-    clearTimeout(autoClose);
-    close();
-    document.querySelector('#products-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  overlay.querySelector('.engagement-modal-close').addEventListener('click', close);
+  overlay.querySelector('.engagement-modal-cta').addEventListener('click', close);
+  document.addEventListener('keydown', onKey);
 }
