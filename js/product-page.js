@@ -222,8 +222,9 @@ function render(p) {
           ${r.author ? `<span class="pp-review-author">${r.author}</span>` : '<span></span>'}
           <span class="pp-review-rating">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span>
         </div>
-        ${r.photo ? `<img class="pp-review-photo" src="${r.photo}" alt="Foto de cliente" loading="lazy">` : ''}
-        <p class="pp-review-comment">${r.comment}</p>
+        ${r.photo
+          ? `<img class="pp-review-photo" src="${r.photo}" alt="Foto de cliente" loading="lazy">`
+          : `<p class="pp-review-comment">${r.comment}</p>`}
         <span class="pp-review-date">${new Date(r.date).toLocaleDateString('es-UY')}</span>
       </article>
     `).join('');
