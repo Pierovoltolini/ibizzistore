@@ -392,6 +392,13 @@
   height: auto;
   margin-bottom: var(--space-4);
 }
+/* Reel de Instagram embebido, al final de la tira de reseñas. */
+.review-video {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-7);
+}
+.review-video iframe { max-width: 100%; }
 .review-rating {
   color: var(--color-text-primary);
   letter-spacing: 2px;
