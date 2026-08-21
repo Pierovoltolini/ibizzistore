@@ -45,8 +45,9 @@ function showModal() {
         <span>💳 Hasta 12 cuotas sin interés</span>
         <span>🏦 10% off pagando por transferencia</span>
         <span>🚚 Envíos a todo Uruguay</span>
+        <span>🕐 Pagás antes de las 17 hs y lo despachamos hoy mismo</span>
       </div>
-      <a href="products.html" class="btn btn-primary engagement-modal-cta">Explorar colección</a>
+      <button type="button" class="btn btn-primary engagement-modal-cta">Entendido</button>
     </div>
   `;
   document.body.appendChild(overlay);
