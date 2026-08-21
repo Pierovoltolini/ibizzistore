@@ -472,10 +472,10 @@
 .pp-review-photo {
   display: block;
   width: 100%;
-  max-width: 220px;
+  max-width: 280px;
+  height: auto;
   border-radius: 4px;
   margin-bottom: var(--space-3);
-  object-fit: cover;
 }
 .pp-review-comment {
   font-family: var(--font-serif);

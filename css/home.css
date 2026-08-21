@@ -389,8 +389,7 @@
 .review-photo {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
   margin-bottom: var(--space-4);
 }
 .review-rating {
