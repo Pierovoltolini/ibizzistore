@@ -533,9 +533,9 @@
     "complementaryProducts": [1, 13],
     "recommendedProducts": [14, 16],
     "reviews": [
-      { "author": "Cliente verificado", "rating": 5, "comment": "Espectacular el reloj, me encantó. ¡Muchas gracias!", "date": "2026-06-14" },
-      { "author": "Comprador IBIZZI", "rating": 5, "comment": "Buen día, muchísimas gracias, tremenda la calidad 🔥", "date": "2026-07-02" },
-      { "author": "Cliente real", "rating": 5, "comment": "¡Llegaron los relojes! Llegó todo perfecto, muchísimas gracias.", "date": "2026-07-19" }
+      { "author": "Cliente verificado", "rating": 5, "comment": "Espectacular el reloj, me encantó. ¡Muchas gracias!", "date": "2026-06-14", "photo": "assets/products/resena-tissot-wrist.jpg" },
+      { "author": "Comprador IBIZZI", "rating": 5, "comment": "Buen día, muchísimas gracias, tremenda la calidad 🔥", "date": "2026-07-02", "photo": "assets/products/resena-tissot-hand.jpg" },
+      { "author": "Cliente real", "rating": 5, "comment": "¡Llegaron los relojes! Llegó todo perfecto, muchísimas gracias.", "date": "2026-07-19", "photo": "assets/products/resena-combo.jpg" }
     ]
   },
   {
@@ -743,8 +743,8 @@
     "complementaryProducts": [1, 13],
     "recommendedProducts": [16, 20],
     "reviews": [
-      { "author": "Cliente real", "rating": 5, "comment": "¡Llegaron los relojes! Llegó todo perfecto, muchísimas gracias.", "date": "2026-07-19" },
-      { "author": "Cliente verificado", "rating": 5, "comment": "¡Ya me llegó! Muy bueno el reloj, la semana que viene compro otro.", "date": "2026-08-01" }
+      { "author": "Cliente real", "rating": 5, "comment": "¡Llegaron los relojes! Llegó todo perfecto, muchísimas gracias.", "date": "2026-07-19", "photo": "assets/products/resena-combo.jpg" },
+      { "author": "Cliente verificado", "rating": 5, "comment": "¡Ya me llegó! Muy bueno el reloj, la semana que viene compro otro.", "date": "2026-08-01", "photo": "assets/products/resena-tommy.jpg" }
     ]
   }
 ]

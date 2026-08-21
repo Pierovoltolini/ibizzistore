@@ -469,6 +469,14 @@
   color: var(--color-text-primary);
 }
 .pp-review-rating { color: var(--color-text-primary); letter-spacing: 2px; }
+.pp-review-photo {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  border-radius: 4px;
+  margin-bottom: var(--space-3);
+  object-fit: cover;
+}
 .pp-review-comment {
   font-family: var(--font-serif);
   font-style: italic;
