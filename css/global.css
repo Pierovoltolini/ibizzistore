@@ -330,3 +330,85 @@ body.is-locked {
     bottom: calc(var(--space-6, 2rem) + env(safe-area-inset-bottom, 0px));
   }
 }
+
+/* ---------- Barra de guía rápida (páginas de listado) ---------- */
+
+.products-guide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-5);
+  border: 1px solid var(--color-border-soft);
+  background-color: var(--color-bg-secondary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+.products-guide a {
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid currentColor;
+  transition: var(--transition-color);
+}
+.products-guide a:hover {
+  color: var(--color-text-primary);
+}
+
+/* ---------- Aviso de engagement (toast con temporizador) ---------- */
+
+.engagement-toast {
+  position: fixed;
+  left: 50%;
+  /* Despeja el botón flotante de Instagram, que vive en la misma esquina. */
+  bottom: calc(var(--space-4) + 68px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%) translateY(20px);
+  z-index: var(--z-toast);
+  width: calc(100% - var(--space-8));
+  max-width: 400px;
+  padding: var(--space-4);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+}
+.engagement-toast.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.engagement-toast-close {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-3);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--color-text-muted);
+}
+.engagement-toast-close:hover {
+  color: var(--color-text-primary);
+}
+.engagement-toast-text {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  padding-right: var(--space-4);
+}
+.engagement-toast-cta {
+  width: auto;
+  padding-inline: var(--space-5);
+}
+@media (min-width: 768px) {
+  .engagement-toast {
+    left: auto;
+    right: var(--space-6, 2rem);
+    bottom: calc(var(--space-6, 2rem) + 68px);
+    transform: translateY(20px);
+  }
+  .engagement-toast.is-visible {
+    transform: translateY(0);
+  }
+}
+

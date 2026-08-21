@@ -3,8 +3,9 @@
    Filtros, ordenamiento y drawer móvil para products.html
    ============================================================ */
 
-import { qs, qsa, lockScroll, unlockScroll } from './utils.js';
+import { qs, qsa, lockScroll, unlockScroll, whatsappLink } from './utils.js';
 import { loadProducts, renderGrid } from './products.js';
+import { initEngagementCTA } from './engagement-cta.js';
 
 const state = {
   category: null,
@@ -192,8 +193,14 @@ export async function initProductsPage() {
   const reviewsSection = qs('#products-reviews-section');
   if (reviewsSection) reviewsSection.hidden = state.category?.toLowerCase() !== 'relojes';
 
+  // Link de WhatsApp de la barra de guía rápida.
+  const waLink = qs('#products-guide-whatsapp');
+  if (waLink) waLink.href = whatsappLink('¡Hola IBIZZI! Tengo una consulta sobre un producto.');
+
   buildFilterUI(products);
   wireFilters(products);
   wireDrawer();
   renderResults(products);
+
+  initEngagementCTA();
 }
