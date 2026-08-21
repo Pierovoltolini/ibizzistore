@@ -188,6 +188,10 @@ export async function initProductsPage() {
     else                  titleEl.textContent = 'Todos los productos';
   }
 
+  // Tira de reseñas: solo tiene sentido en la categoría Relojes por ahora.
+  const reviewsSection = qs('#products-reviews-section');
+  if (reviewsSection) reviewsSection.hidden = state.category?.toLowerCase() !== 'relojes';
+
   buildFilterUI(products);
   wireFilters(products);
   wireDrawer();
