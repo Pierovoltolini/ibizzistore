@@ -702,9 +702,10 @@
     "oldPrice": null,
     "discount": 0,
     "currency": "UYU",
-    "stock": 3,
+    "stock": 99,
     "status": "available",
-    "deliveryNote": "Comprá hoy, recibís mañana",
+    "madeToOrder": true,
+    "deliveryNote": "Entrega en 10 días",
     "sizes": ["Único"],
     "colors": [
       { "name": "Acero / Cuero marrón", "hex": "#6B4426" }
