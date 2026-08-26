@@ -483,7 +483,8 @@
       { "name": "Acero / Cuero negro", "hex": "#1A1A1A" }
     ],
     "images": [
-      "assets/products/reloj-tommy-hilfiger-azul-1.jpg"
+      "assets/products/reloj-tommy-hilfiger-negro-1.jpg",
+      "assets/products/reloj-tommy-hilfiger-negro-2.jpg"
     ],
     "video": null,
     "featured": false,
@@ -711,7 +712,8 @@
       { "name": "Acero / Cuero marrón", "hex": "#6B4426" }
     ],
     "images": [
-      "assets/products/reloj-armani-cronografo-negro-1.jpg"
+      "assets/products/reloj-armani-cronografo-negro-1.jpg",
+      "assets/products/reloj-armani-cronografo-negro-2.jpg"
     ],
     "video": null,
     "featured": true,

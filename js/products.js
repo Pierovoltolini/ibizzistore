@@ -100,7 +100,7 @@ export function productCardHTML(product) {
 
         <div class="product-card-badges">
           ${comingSoon ? '<span class="label label-preorder">Próximamente</span>' : ''}
-          ${product.madeToOrder ? '<span class="label label-gift">🎁 10% Obsequio</span>' : ''}
+          ${product.madeToOrder ? '<span class="label label-gift">🎁 20% OFF</span>' : ''}
           ${!comingSoon && !product.madeToOrder && product.new ? '<span class="label label-new">Nuevo</span>' : ''}
           ${discount > 0 ? `<span class="label label-sale">-${discount}%</span>` : ''}
           ${outOfStock ? '<span class="label label-sold">Agotado</span>' : ''}

@@ -94,6 +94,19 @@ a:hover { color: var(--color-text-primary); }
   margin-bottom: var(--space-2);
 }
 
+/* Título promocional de "Más relojes": bien llamativo, para que se note
+   la diferencia con un section-title normal. */
+.products-more-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: 1.15;
+  letter-spacing: var(--ls-tight);
+  text-align: center;
+  color: var(--color-warning);
+  margin-bottom: var(--space-2);
+}
+
 .section-subtitle {
   font-family: var(--font-sans);
   font-size: var(--fs-sm);
